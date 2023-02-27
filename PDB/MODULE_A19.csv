@@ -1,0 +1,130 @@
+129,
+name01,A19_DO00
+name02,A19_DO01
+name03,A19_DO02
+name04,A19_DO03
+name05,A19_DO04
+name06,A19_DO05
+name07,A19_DO06
+name08,A19_DO07
+name09,A19_DO08
+name10,A19_DO09
+name11,A19_DO10
+name12,A19_DO11
+name13,A19_DO12
+name14,A19_DO13
+name15,A19_DO14
+name16,A19_DO15
+name17,A19_DO16
+name18,A19_DO17
+name19,A19_DO18
+name20,A19_DO19
+name21,A19_DO20
+name22,A19_DO21
+name23,A19_DO22
+name24,A19_DO23
+name25,A19_DO24
+name26,A19_DO25
+name27,A19_DO26
+name28,A19_DO27
+name29,A19_DO28
+name30,A19_DO29
+name31,A19_DO30
+name32,A19_DO31
+description01,Выдача сигнала на закрытие К1
+description02,Выдача сигнала на открытие К1
+description03,Выдача сигнала на останов К1
+description04,Выдача сигнала на закрытие К2
+description05,Выдача сигнала на открытие К2
+description06,Выдача сигнала на останов К2. Программируемый выход.
+description07,Выдача сигнала 2P управление или 2P импульсное
+description08,Выдача сигнала на закрытие К3
+description09,Выдача сигнала на открытие К3
+description10,Выдача сигнала на останов К3
+description11,Выдача сигнала на закрытие К4
+description12,Выдача сигнала на открытие К4
+description13,Выдача сигнала на останов К4
+description14,Выдача сигнала на закрытие К5
+description15,Выдача сигнала на открытие К5
+description16,Выдача сигнала на останов К5
+description17,Управляющий сигнал D1 на ПИД регулятор.
+description18,Управляющий сигнал D2 на ПИД 
+description19,Резерв
+description20,Резерв
+description21,Резерв
+description22,Резерв
+description23,Резерв
+description24,Резерв
+description25,Резерв
+description26,Резерв
+description27,Резерв
+description28,Резерв
+description29,Резерв
+description30,Резерв
+description31,Резерв
+description32,Резерв
+pipename01,       
+pipename02,       
+pipename03,       
+pipename04,       
+pipename05,       
+pipename06,       
+pipename07,       
+pipename08,       
+pipename09,       
+pipename10,       
+pipename11,       
+pipename12,       
+pipename13,       
+pipename14,       
+pipename15,       
+pipename16,       
+pipename17,       
+pipename18,       
+pipename19,       
+pipename20,       
+pipename21,       
+pipename22,       
+pipename23,       
+pipename24,       
+pipename25,       
+pipename26,       
+pipename27,       
+pipename28,       
+pipename29,       
+pipename30,       
+pipename31,       
+pipename32,       
+source01,Fix32.FIX.A19_DO00.F_CV
+source02,Fix32.FIX.A19_DO01.F_CV
+source03,Fix32.FIX.A19_DO02.F_CV
+source04,Fix32.FIX.A19_DO03.F_CV
+source05,Fix32.FIX.A19_DO04.F_CV
+source06,Fix32.FIX.A19_DO05.F_CV
+source07,Fix32.FIX.A19_DO06.F_CV
+source08,Fix32.FIX.A19_DO07.F_CV
+source09,Fix32.FIX.A19_DO08.F_CV
+source10,Fix32.FIX.A19_DO09.F_CV
+source11,Fix32.FIX.A19_DO10.F_CV
+source12,Fix32.FIX.A19_DO11.F_CV
+source13,Fix32.FIX.A19_DO12.F_CV
+source14,Fix32.FIX.A19_DO13.F_CV
+source15,Fix32.FIX.A19_DO14.F_CV
+source16,Fix32.FIX.A19_DO15.F_CV
+source17,Fix32.FIX.A19_DO16.F_CV
+source18,Fix32.FIX.A19_DO17.F_CV
+source19,Fix32.FIX.A19_DO18.F_CV
+source20,Fix32.FIX.A19_DO19.F_CV
+source21,Fix32.FIX.A19_DO20.F_CV
+source22,Fix32.FIX.A19_DO21.F_CV
+source23,Fix32.FIX.A19_DO22.F_CV
+source24,Fix32.FIX.A19_DO23.F_CV
+source25,Fix32.FIX.A19_DO24.F_CV
+source26,Fix32.FIX.A19_DO25.F_CV
+source27,Fix32.FIX.A19_DO26.F_CV
+source28,Fix32.FIX.A19_DO27.F_CV
+source29,Fix32.FIX.A19_DO28.F_CV
+source30,Fix32.FIX.A19_DO29.F_CV
+source31,Fix32.FIX.A19_DO30.F_CV
+source32,Fix32.FIX.A19_DO31.F_CV
+module_name,Модуль А19 MDL 754
