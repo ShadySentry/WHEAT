@@ -1,0 +1,275 @@
+{
+    "tag_type": [
+        {
+            "type_name": "AR2",
+            "category": {
+                "General": [
+                    {
+                        "A_TAG": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.tagName"
+                            ]
+                        }
+                    },
+                    {
+                        "A_DESC": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 1
+                    }
+                ],
+                "IO_Addressing": [
+                    {
+                        "A_IODV": {
+                            "default": "SIM",
+                            "enum": [
+                                ""
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_IOAD": {
+                            "default": "0",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.ioAddress"
+                            ]
+                        }
+                    },
+                    {
+                        "A_IOHT": {
+                            "default": "None",
+                            "enum": [
+                                "None"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "rank": 2
+                    }
+                ],
+                "Limits_and_Scaling": [
+                    {
+                        "A_ELO": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "15",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_EHI": {
+                            "default": "100.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "15",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_EGUDESC": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 3
+                    }
+                ],
+                "E-Signature": [
+                    {
+                        "A_ESIGTYPE": {
+                            "default": "NONE",
+                            "enum": [
+                                "NONE",
+                                "PERFONLY",
+                                "PERFVERI"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_ESIGCONT": {
+                            "default": "YES",
+                            "enum": [
+                                "YES",
+                                "NO"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_ESIGACK": {
+                            "default": "NO",
+                            "enum": [
+                                "YES",
+                                "NO"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_ESIGREQ_COMMENT": {
+                            "default": "NO",
+                            "enum": [
+                                "YES",
+                                "NO"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_ESIGTRAP": {
+                            "default": "REJECT",
+                            "enum": [
+                                "REJECT",
+                                "ACCEPT",
+                                "LOG"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "rank": 4
+                    }
+                ],
+                "Advanced_Options": [
+                    {
+                        "A_OUT": {
+                            "default": "NO",
+                            "enum": [
+                                "YES",
+                                "NO"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_NUMS": {
+                            "default": "DECIMAL",
+                            "enum": [
+                                "DECIMAL",
+                                "HEX",
+                                "OCTAL"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_EVENT": {
+                            "default": "NO",
+                            "enum": [
+                                "YES",
+                                "NO"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "Security_Areas": {
+                            "default": "NONE",
+                            "enum": [
+                                ""
+                            ],
+                            "datatype": "string",
+                            "applies_to": [
+                                "A_SA1",
+                                "A_SA2",
+                                "A_SA3"
+                            ]
+                        }
+                    },
+                    {
+                        "A_SA1": {
+                            "default": "NONE",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_SA2": {
+                            "default": "NONE",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_SA3": {
+                            "default": "NONE",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_ALMEXT1": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_ALMEXT2": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 5
+                    }
+                ]
+            }
+        }
+    ]
+}

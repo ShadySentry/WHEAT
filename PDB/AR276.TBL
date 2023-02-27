@@ -1,0 +1,13 @@
+// AR2 iFIX 5.5 -> 6.0
+//#define	CIOAD	128		/* Device address */
+VERSION	0x060308
+SCHDR		//phdr;		/* primary block header */
+DESC		//desc;		/* block descriptor */
+EGURECEX	//egu_ex;	/* egu info (analog in + out) */
+IO_INFO		//ar_io;	/* analog in info */
+CHAR[128]	//addr_str[CIOAD];	/* raw io address in string */
+UCHAR		//out_enable;    	/* UCHAR to decide if output is allowed */
+UCHAR		//wld_no;		/* no of wlld characters */
+UCHAR		//wld_base;	/* base of the I/O address ( dec, hex ) */
+UCHAR 		//wld_ptr;	/* no indicating position of the wild string in the I/O address */
+SCALE_FACTOR    //ScaleFactor;	    // for more precious scalling

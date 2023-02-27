@@ -1,0 +1,130 @@
+129,
+name01,A21_DI00
+name02,A21_DI01
+name03,A21_DI02
+name04,A21_DI03
+name05,A21_DI04
+name06,A21_DI05
+name07,A21_DI06
+name08,A21_DI07
+name09,A21_DI08
+name10,A21_DI09
+name11,A21_DI10
+name12,A21_DI11
+name13,A21_DI12
+name14,A21_DI13
+name15,A21_DI14
+name16,A21_DI15
+name17,A21_DI16
+name18,A21_DI17
+name19,A21_DI18
+name20,A21_DI19
+name21,A21_DI20
+name22,A21_DI21
+name23,A21_DI22
+name24,A21_DI23
+name25,A21_DI24
+name26,A21_DI25
+name27,A21_DI26
+name28,A21_DI27
+name29,A21_DI28
+name30,A21_DI29
+name31,A21_DI30
+name32,A21_DI31
+description01,Свободно программируемое реле RE5K2
+description02,Свободно программируемое реле RE4K2
+description03,Свободно программируемое реле RE3K2
+description04,Свободно программируемое реле RE2K2
+description05,Свободно программируемое реле RE1K2
+description06,Свободно программируемое реле READY K2
+description07,Свободно программируемое реле событий Y1 ПИД регулятора. НЕТ В СХЕМЕ
+description08,Свободно программируемое реле событий Y2 ПИД регулятора. НЕТ В СХЕМЕ
+description09,Отклонение температуры более чем допустимое. ПИД регулятор
+description10,ОШ ПИД регулятора. Уточнить назначение
+description11,Авария ПИД регулятора
+description12,БЫЛ Показания(Счетчик) расходомера
+description13,Резерв
+description14,Резерв
+description15,Резерв
+description16,Резерв
+description17,Резерв
+description18,Показания(Счетчик) расходомера
+description19,Резерв
+description20,Резерв
+description21,Резерв
+description22,Резерв
+description23,Резерв
+description24,Резерв
+description25,Резерв
+description26,Резерв
+description27,Контроль стыковки 1
+description28,Контроль стыковки 2
+description29,Контроль стыковки 3
+description30,Контроль стыковки 4
+description31,Контроль стыковки 5
+description32,Контроль стыковки 6.
+pipename01,    
+pipename02,    
+pipename03,    
+pipename04,    
+pipename05,    
+pipename06,    
+pipename07,    
+pipename08,    
+pipename09,    
+pipename10,    
+pipename11,    
+pipename12,    
+pipename13,    
+pipename14,    
+pipename15,    
+pipename16,    
+pipename17,    
+pipename18,    
+pipename19,    
+pipename20,    
+pipename21,    
+pipename22,    
+pipename23,    
+pipename24,    
+pipename25,    
+pipename26,    
+pipename27,    
+pipename28,    
+pipename29,    
+pipename30,    
+pipename31,    
+pipename32,    
+source01,Fix32.FIX.A21_DI00.F_CV
+source02,Fix32.FIX.A21_DI01.F_CV
+source03,Fix32.FIX.A21_DI02.F_CV
+source04,Fix32.FIX.A21_DI03.F_CV
+source05,Fix32.FIX.A21_DI04.F_CV
+source06,Fix32.FIX.A21_DI05.F_CV
+source07,Fix32.FIX.A21_DI06.F_CV
+source08,Fix32.FIX.A21_DI07.F_CV
+source09,Fix32.FIX.A21_DI08.F_CV
+source10,Fix32.FIX.A21_DI09.F_CV
+source11,Fix32.FIX.A21_DI10.F_CV
+source12,Fix32.FIX.A21_DI11.F_CV
+source13,Fix32.FIX.A21_DI12.F_CV
+source14,Fix32.FIX.A21_DI13.F_CV
+source15,Fix32.FIX.A21_DI14.F_CV
+source16,Fix32.FIX.A21_DI15.F_CV
+source17,Fix32.FIX.A21_DI16.F_CV
+source18,Fix32.FIX.A21_DI17.F_CV
+source19,Fix32.FIX.A21_DI18.F_CV
+source20,Fix32.FIX.A21_DI19.F_CV
+source21,Fix32.FIX.A21_DI20.F_CV
+source22,Fix32.FIX.A21_DI21.F_CV
+source23,Fix32.FIX.A21_DI22.F_CV
+source24,Fix32.FIX.A21_DI23.F_CV
+source25,Fix32.FIX.A21_DI24.F_CV
+source26,Fix32.FIX.A21_DI25.F_CV
+source27,Fix32.FIX.A21_DI26.F_CV
+source28,Fix32.FIX.A21_DI27.F_CV
+source29,Fix32.FIX.A21_DI28.F_CV
+source30,Fix32.FIX.A21_DI29.F_CV
+source31,Fix32.FIX.A21_DI30.F_CV
+source32,Fix32.FIX.A21_DI31.F_CV
+module_name,Модуль А21 MDL 754

@@ -1,0 +1,338 @@
+{
+    "tag_type": [
+        {
+            "type_name": "ODO",
+            "category": {
+                "General": [{
+                        "A_TAG": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.tagName"
+                            ]
+                    }},
+                    {
+                        "A_DESC": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {"rank": 1}
+                ],
+                "IO_Addressing": [{
+                        "A_IODV": {
+                            "default": "SIM",
+                            "enum": [
+                                ""
+                            ],
+                            "datatype": "string"
+                    }},
+                    {
+                        "A_IOAD": {
+                            "default": "0:0",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.ioBitAddress"
+                            ]
+                    }},
+                    {
+                        "A_IOHT": {
+                            "default": "None",
+                            "enum": [
+                                "None"
+                            ],
+                            "datatype": "string"
+                    }},
+                    {
+                        "A_INVRT": {
+                            "default": "NO",
+                            "enum": [
+                                "NO",
+                                "YES"
+                            ],
+                            "datatype": "string"
+                    }},
+                    {
+                        "A_INVQ": {
+                            "default": "0",
+                            "enum": "",
+                            "datatype": "number",
+                            "field_min": "0",
+                            "field_max": "32767",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.isIntegerValidation",
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue"
+                            ]
+                    }},
+                    {"rank": 2}
+                ],
+                "Limits_and_Scaling": [{
+                        "A_OPEN": {
+                            "default": "OPEN",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {
+                        "A_CLOSE": {
+                            "default": "CLOSE",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {"rank": 3}
+                ],
+                "Alarms_Options": [{
+                        "Alarm_Areas": {
+                            "default": "ALL",
+                            "enum": [
+                                ""
+                            ],
+                            "datatype": "string",
+                            "applies_to": [
+                                "A_AREA1",
+                                "A_AREA2",
+                                "A_AREA3",
+                                "A_AREA4",
+                                "A_AREA5",
+                                "A_AREA6",
+                                "A_AREA7",
+                                "A_AREA8",
+                                "A_AREA9",
+                                "A_AREA10",
+                                "A_AREA11",
+                                "A_AREA12",
+                                "A_AREA13",
+                                "A_AREA14",
+                                "A_AREA15"
+                            ]
+                    }},
+                    {
+                        "A_IENAB": {
+                            "default": "DISABLE",
+                            "enum": [
+                                "DISABLE",
+                                "ENABLE"
+                            ],
+                            "datatype": "string"
+                    }},
+                    {
+                        "A_PRI": {
+                            "default": "LOW",
+                            "enum": [
+                                "INFO",
+                                "LOW",
+                                "LOLO",
+                                "MEDIUM",
+                                "HIGH",
+                                "HIHI",
+                                "CRITICAL"
+                            ],
+                            "datatype": "string"
+                    }},
+                    {
+                        "A_AREA1": {
+                            "default": "ALL",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {
+                        "A_AREA2": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {
+                        "A_AREA3": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {
+                        "A_AREA4": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {
+                        "A_AREA5": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {
+                        "A_AREA6": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {
+                        "A_AREA7": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {
+                        "A_AREA8": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {
+                        "A_AREA9": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {
+                        "A_AREA10": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {
+                        "A_AREA11": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA12": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {
+                        "A_AREA13": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {
+                        "A_AREA14": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {
+                        "A_AREA15": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {"rank": 4}
+                ],
+                "Advanced_Options": [{
+                        "Security_Areas": {
+                            "default": "NONE",
+                            "enum": [
+                                ""
+                            ],
+                            "datatype": "string",
+                            "applies_to": [
+                                "A_SA1",
+                                "A_SA2",
+                                "A_SA3"
+                            ]
+                    }},
+                    {
+                        "A_SA1": {
+                            "default": "NONE",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {
+                        "A_SA2": {
+                            "default": "NONE",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {
+                        "A_SA3": {
+                            "default": "NONE",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                    }},
+                    {
+                        "A_NEXT": {
+                            "default": "",
+                            "enum": "",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.blockName"
+                            ]
+                    }},
+                    {"rank": 5}
+                ]
+            }
+        }
+    ]
+}

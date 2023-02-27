@@ -1,0 +1,17 @@
+["Please translate Font Name, Font Size, Font Style, and Translation Text. If these fields are blank, they are unavailable for translation."]
+[Category,Object Name,Font Name,Font Size,FontStyle,Original Text,Translation Text,Original Text,Translation Text]
+OleCaption,historian_history_v2.CommandButton1,Arial,14,1,"ПРИМЕНИТЬ","ПРИМЕНИТЬ",,
+Caption,historian_history_v2.Text45,,14,0,"Частота выборки протокола:","Частота выборки протокола:",,
+Caption,historian_history_v2.Text111,,12,1,"Выборка из протокола не более 50000 значений. Если Вам необходимо больше\, сохраните несколько протоколов !!!","Выборка из протокола не более 50000 значений. Если Вам необходимо больше\, сохраните несколько протоколов !!!",,
+Chart,historian_history_v2.Chart4,Arial,12,0,"","","Axis Title","Axis Title",
+OleCaption,historian_history_v2.CommandButton4,Arial,14,1,"СОХРАНИТЬ","СОХРАНИТЬ",,
+Description,historian_history_v2.exit_btn2.btn_Login5,,,,"Menu button","Menu button",,
+Caption,historian_history_v2.exit_btn2.btn_Login5,Calibri,16,1,"Закрыть","Закрыть",,
+Description,historian_history_v2.apply_btn.btn_Login3,,,,"Menu button","Menu button",,
+Caption,historian_history_v2.apply_btn.btn_Login3,Calibri,16,1,"Подтвердить","Подтвердить",,
+Description,historian_history_v2.Export_btn.btn_Login4,,,,"Menu button","Menu button",,
+Caption,historian_history_v2.Export_btn.btn_Login4,Calibri,16,1,"Экспорт","Экспорт",,
+Caption,historian_history_v2.Text46,,14,0,"Параметр","Параметр",,
+Description,historian_history_v2.QualityBox,,,,"NO DATA","NO DATA",,
+Caption,historian_history_v2.Text11,Calibri,14,1,"Контроль качества","Контроль качества",,
+Caption,historian_history_v2.Text12,Calibri,14,1,"Лимит:","Лимит:",,

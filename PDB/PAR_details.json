@@ -1,0 +1,1912 @@
+{
+    "tag_type": [
+        {
+            "type_name": "PAR",
+            "category": {
+                "General": [
+                    {
+                        "A_TAG": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.tagName"
+                            ]
+                        }
+                    },
+                    {
+                        "A_DESC": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 1
+                    }
+                ],
+                "Limits_and_Scaling": [
+                    {
+                        "A_ELO": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_EHI": {
+                            "default": "100.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_EGUDESC": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 2
+                    }
+                ],
+                "Array_Values": [
+                    {
+                        "A_CV[1]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[1]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[2]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[2]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[3]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[3]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[4]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[4]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[5]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[5]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[6]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[6]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[7]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[7]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[8]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[8]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[9]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[9]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[10]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[10]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[11]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[11]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[12]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[12]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[13]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[13]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[14]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[14]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[15]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[15]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[16]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[16]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[17]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[17]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[18]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[18]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[19]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[19]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[20]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[21]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[22]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[22]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[23]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[23]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[24]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[24]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[25]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[25]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[26]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[26]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[27]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[27]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[28]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[28]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[29]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[29]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[30]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[30]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[31]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[32]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[33]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[33]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[34]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[34]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[35]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[35]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[36]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[36]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[37]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[37]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[38]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[38]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[39]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[39]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[40]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[40]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[41]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[41]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[42]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[42]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[43]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[43]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[44]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[44]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[45]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[45]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[46]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[46]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[47]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[47]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[48]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[48]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[49]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[49]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[50]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[50]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[51]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[51]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[52]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[52]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[53]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[53]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[54]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[54]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[55]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[55]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[56]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[56]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[57]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[57]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[58]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[58]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[59]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[59]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_CV[60]": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TXT[60]": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 3
+                    }
+                ],
+                "Alarms_Options": [
+                    {
+                        "Alarm_Areas": {
+                            "default": "ALL",
+                            "enum": [
+                                ""
+                            ],
+                            "datatype": "string",
+                            "applies_to": [
+                                "A_AREA1",
+                                "A_AREA2",
+                                "A_AREA3",
+                                "A_AREA4",
+                                "A_AREA5",
+                                "A_AREA6",
+                                "A_AREA7",
+                                "A_AREA8",
+                                "A_AREA9",
+                                "A_AREA10",
+                                "A_AREA11",
+                                "A_AREA12",
+                                "A_AREA13",
+                                "A_AREA14",
+                                "A_AREA15"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA1": {
+                            "default": "ALL",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA2": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA3": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA4": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA5": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA6": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA7": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA8": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA9": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA10": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA11": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA12": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA13": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA14": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA15": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 4
+                    }
+                ],
+                "Advanced_Options": [
+                    {
+                        "Security_Areas": {
+                            "default": "NONE",
+                            "enum": [
+                                ""
+                            ],
+                            "datatype": "string",
+                            "applies_to": [
+                                "A_SA1",
+                                "A_SA2",
+                                "A_SA3"
+                            ]
+                        }
+                    },
+                    {
+                        "A_SA1": {
+                            "default": "NONE",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_SA2": {
+                            "default": "NONE",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_SA3": {
+                            "default": "NONE",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_PREV": {
+                            "default": "",
+                            "enum": "",
+                            "validators": []
+                        }
+                    },
+                    {
+                        "A_ALMEXT1": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_ALMEXT2": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 5
+                    }
+                ]
+            }
+        }
+    ]
+}

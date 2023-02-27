@@ -1,0 +1,1128 @@
+{
+    "tag_type": [
+        {
+            "type_name": "BPL",
+            "category": {
+                "General": [
+                    {
+                        "A_TAG": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.tagName"
+                            ]
+                        }
+                    },
+                    {
+                        "A_DESC": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 1
+                    }
+                ],
+                "Limits_and_Scaling": [
+                    {
+                        "A_ELO": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_EHI": {
+                            "default": "100.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_EGUDESC": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 2
+                    }
+                ],
+                "BreakPoints": [
+                    {
+                        "A_I[00]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[00]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[00]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[01]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[01]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[01]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[02]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[02]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[02]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[03]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[03]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[03]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[04]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[04]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[04]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[05]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[05]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[05]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[06]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[06]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[06]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[07]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[07]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[07]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[08]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[08]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[08]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[09]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[09]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[09]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[10]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[10]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[10]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[11]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[11]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[11]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[12]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[12]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[12]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[13]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[13]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[13]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[14]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[14]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[14]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[15]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[15]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[15]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[16]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[16]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[16]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[17]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[17]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[17]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[18]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[18]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[18]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_I[19]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_O[19]": {
+                            "default": "0",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_S[19]": {
+                            "default": "1",
+                            "field_min": "-9,999,999",
+                            "field_max": "9,999,999",
+                            "field_precision": "8",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 3
+                    }
+                ],
+                "E-Signature": [
+                    {
+                        "A_ESIGTYPE": {
+                            "default": "NONE",
+                            "enum": [
+                                "NONE",
+                                "PERFONLY",
+                                "PERFVERI"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_ESIGCONT": {
+                            "default": "YES",
+                            "enum": [
+                                "YES",
+                                "NO"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_ESIGACK": {
+                            "default": "NO",
+                            "enum": [
+                                "YES",
+                                "NO"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_ESIGREQ_COMMENT": {
+                            "default": "NO",
+                            "enum": [
+                                "YES",
+                                "NO"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_ESIGTRAP": {
+                            "default": "REJECT",
+                            "enum": [
+                                "REJECT",
+                                "ACCEPT",
+                                "LOG"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "rank": 4
+                    }
+                ],
+                "Advanced_Options": [
+                    {
+                        "A_PREV": {
+                            "default": "",
+                            "enum": "",
+                            "validators": []
+                        }
+                    },
+                    {
+                        "A_NEXT": {
+                            "default": "",
+                            "enum": "",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.blockName"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 5
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+// ETR iFIX v5.5 -> 6.0
+//
+//#define 	ETRSIZ	600		/* entries in Extended trend data block */
+VERSION 0x090197
+SCHDR		//shdr;		/* secondary block header */
+EGUREC		//egurec;	/* egu info (analog) */
+FIELDINFO	//src_blk;	/* get from field name */
+INT16		//time;		/* average time (1 - n) */
+INT16		//avgcnt;	/* average time counter */
+UINT16		//next_ptr;	/* next data pointer */
+UINT16		//seqnum;	/* sequence number */
+INT32		//average;	/* running average (subtotal) */
+UINT16[600]	//data[ETRSIZ];	/* data array */
+UINT16		//cur_val;	/* latest completed average */
+UINT16		//fifo_out;	/* current 'FIFO OUT' value */
+UCHAR		//status;	/* status UCHAR */
+UCHAR		//spare;	/* spare */
+INT32		//tmpscan;	/* scan time of the primary block */
+INT32		//total_late;	/* time we running behind the scan rate */
+UINT32		//last_time;	/* last updata time in ticks */
+UINT32[2]	//spare2[2];
+DESC		//desc;		/* block descriptor */
+EGU_DESC	//LongEguDesc; /* for longer egu tagnames */

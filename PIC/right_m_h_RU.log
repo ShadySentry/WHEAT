@@ -1,0 +1,43 @@
+Opening translation file: C:\PROGRAM FILES (X86)\GE\IFIX\PIC\right_m_h_RU.csv
+Start Translation: Thu Feb 23 22:21:46 2023
+
+Error (Line: 40) >>Object not found: right_m_h.Group16.Group4.btn_simple_square4.btn_simple_round_caption5
+Error (Line: 41) >>Object not found: right_m_h.Group16.Group4.btn_simple_square4
+Error (Line: 42) >>Object not found: right_m_h.Group16.Group4.btn_simple_square5.btn_simple_round_caption6
+Error (Line: 43) >>Object not found: right_m_h.Group16.Group4.Text3
+Error (Line: 44) >>Object not found: right_m_h.Group16.Group4.digits_transp_s2.transp_s_digits_Name2
+Error (Line: 45) >>Object not found: right_m_h.Group16.Group4.digits_transp_s2.transp_s_digits_text2
+Error (Line: 46) >>Object not found: right_m_h.Group16.Group2.btn_simple_square.btn_simple_round_caption1
+Error (Line: 47) >>Object not found: right_m_h.Group16.Group2.btn_simple_square
+Error (Line: 48) >>Object not found: right_m_h.Group16.Group2.btn_simple_square1.btn_simple_round_caption2
+Error (Line: 49) >>Object not found: right_m_h.Group16.Group2.Text1
+Error (Line: 50) >>Object not found: right_m_h.Group16.Group2.digits_transp_s.transp_s_digits_Name
+Error (Line: 51) >>Object not found: right_m_h.Group16.Group2.digits_transp_s.transp_s_digits_text
+Error (Line: 52) >>Object not found: right_m_h.Group16.Text10
+Error (Line: 53) >>Object not found: right_m_h.Group16.Group3.btn_simple_square2.btn_simple_round_caption3
+Error (Line: 54) >>Object not found: right_m_h.Group16.Group3.btn_simple_square2
+Error (Line: 55) >>Object not found: right_m_h.Group16.Group3.btn_simple_square3.btn_simple_round_caption4
+Error (Line: 56) >>Object not found: right_m_h.Group16.Group3.Text2
+Error (Line: 57) >>Object not found: right_m_h.Group16.Group3.digits_transp_s1.transp_s_digits_Name1
+Error (Line: 58) >>Object not found: right_m_h.Group16.Group3.digits_transp_s1.transp_s_digits_text1
+Error (Line: 59) >>Object not found: right_m_h.Group16.Group5.btn_simple_square6.btn_simple_round_caption7
+Error (Line: 60) >>Object not found: right_m_h.Group16.Group5.btn_simple_square6
+Error (Line: 61) >>Object not found: right_m_h.Group16.Group5.btn_simple_square7.btn_simple_round_caption8
+Error (Line: 62) >>Object not found: right_m_h.Group16.Group5.Text4
+Error (Line: 63) >>Object not found: right_m_h.Group16.Group5.digits_transp_s3.transp_s_digits_Name3
+Error (Line: 64) >>Object not found: right_m_h.Group16.Group5.digits_transp_s3.transp_s_digits_text3
+Error (Line: 65) >>Object not found: right_m_h.Group16.Group6.btn_simple_square8.btn_simple_round_caption9
+Error (Line: 66) >>Object not found: right_m_h.Group16.Group6.btn_simple_square8
+Error (Line: 67) >>Object not found: right_m_h.Group16.Group6.btn_simple_square9.btn_simple_round_caption10
+Error (Line: 68) >>Object not found: right_m_h.Group16.Group6.Text5
+Error (Line: 69) >>Object not found: right_m_h.Group16.Group6.digits_transp_s4.transp_s_digits_Name4
+Error (Line: 70) >>Object not found: right_m_h.Group16.Group6.digits_transp_s4.transp_s_digits_text4
+Error (Line: 71) >>Object not found: right_m_h.Group16.Group7.btn_simple_square12.btn_simple_round_caption13
+Error (Line: 72) >>Object not found: right_m_h.Group16.Group7.btn_simple_square12
+Error (Line: 73) >>Object not found: right_m_h.Group16.Group7.btn_simple_square13.btn_simple_round_caption14
+Error (Line: 74) >>Object not found: right_m_h.Group16.Group7.Text6
+Error (Line: 75) >>Object not found: right_m_h.Group16.Group7.digits_transp_s6.transp_s_digits_Name6
+Error (Line: 76) >>Object not found: right_m_h.Group16.Group7.digits_transp_s6.transp_s_digits_text6
+End Translation: Thu Feb 23 22:21:46 2023
+
+Translation time (sec): 0.089

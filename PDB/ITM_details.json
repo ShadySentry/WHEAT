@@ -1,0 +1,496 @@
+{
+    "tag_type": [
+        {
+            "type_name": "ITM",
+            "category": {
+                "General": [
+                    {
+                        "A_TAG": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.tagName"
+                            ]
+                        }
+                    },
+                    {
+                        "A_DESC": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 1
+                    }
+                ],
+                "Timer_and_Total_Options": [
+                    {
+                        "A_PASS": {
+                            "default": "INT",
+                            "enum": [
+                                "INT",
+                                "INP",
+                                "ALM",
+                                "TOT"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_GET1": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.blockFiledValidation"
+                            ]
+                        }
+                    },
+                    {
+                        "A_GET2": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.blockFiledValidation"
+                            ]
+                        }
+                    },
+                    {
+                        "A_HCLR": {
+                            "default": "YES",
+                            "enum": [
+                                "NO",
+                                "YES"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_CCLR": {
+                            "default": "YES",
+                            "enum": [
+                                "NO",
+                                "YES"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_RANGE": {
+                            "default": "0:00:00:10.000",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.itmBlockValidation",
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_ILIMIT": {
+                            "default": "0:00:00:10.000",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.itmBlockValidation",
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_TLIMIT": {
+                            "default": "0:00:00:00",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.dayTimeRange",
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 2
+                    }
+                ],
+                "Alarms_Options": [
+                    {
+                        "Alarm_Areas": {
+                            "default": "ALL",
+                            "enum": [
+                                ""
+                            ],
+                            "datatype": "string",
+                            "applies_to": [
+                                "A_AREA1",
+                                "A_AREA2",
+                                "A_AREA3",
+                                "A_AREA4",
+                                "A_AREA5",
+                                "A_AREA6",
+                                "A_AREA7",
+                                "A_AREA8",
+                                "A_AREA9",
+                                "A_AREA10",
+                                "A_AREA11",
+                                "A_AREA12",
+                                "A_AREA13",
+                                "A_AREA14",
+                                "A_AREA15"
+                            ]
+                        }
+                    },
+                    {
+                        "A_IENAB": {
+                            "default": "DISABLE",
+                            "enum": [
+                                "DISABLE",
+                                "ENABLE"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_PRI": {
+                            "default": "HIGH",
+                            "enum": [
+                                "INFO",
+                                "LOW",
+                                "LOLO",
+                                "MEDIUM",
+                                "HIGH",
+                                "HIHI",
+                                "CRITICAL"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_AREA1": {
+                            "default": "ALL",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA2": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA3": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA4": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA5": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA6": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA7": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA8": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA9": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA10": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA11": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA12": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA13": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA14": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA15": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 3
+                    }
+                ],
+                "E-Signature": [
+                    {
+                        "A_ESIGTYPE": {
+                            "default": "NONE",
+                            "enum": [
+                                "NONE",
+                                "PERFONLY",
+                                "PERFVERI"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_ESIGCONT": {
+                            "default": "YES",
+                            "enum": [
+                                "YES",
+                                "NO"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_ESIGACK": {
+                            "default": "NO",
+                            "enum": [
+                                "YES",
+                                "NO"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_ESIGREQ_COMMENT": {
+                            "default": "NO",
+                            "enum": [
+                                "YES",
+                                "NO"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_ESIGTRAP": {
+                            "default": "REJECT",
+                            "enum": [
+                                "REJECT",
+                                "ACCEPT",
+                                "LOG"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "rank": 4
+                    }
+                ],
+                "Advanced_Options": [
+                    {
+                        "A_IAM": {
+                            "default": "AUTO",
+                            "enum": [
+                                "AUTO",
+                                "MANL"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_CLR": {
+                            "default": "YES",
+                            "enum": [
+                                "YES",
+                                "NO"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "Security_Areas": {
+                            "default": "NONE",
+                            "enum": [
+                                ""
+                            ],
+                            "datatype": "string",
+                            "applies_to": [
+                                "A_SA1",
+                                "A_SA2",
+                                "A_SA3"
+                            ]
+                        }
+                    },
+                    {
+                        "A_SA1": {
+                            "default": "NONE",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_SA2": {
+                            "default": "NONE",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_SA3": {
+                            "default": "NONE",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_PREV": {
+                            "default": "",
+                            "enum": "",
+                            "validators": []
+                        }
+                    },
+                    {
+                        "A_NEXT": {
+                            "default": "",
+                            "enum": "",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.blockName"
+                            ]
+                        }
+                    },
+                    {
+                        "A_ALMEXT1": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_ALMEXT2": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 5
+                    }
+                ]
+            }
+        }
+    ]
+}

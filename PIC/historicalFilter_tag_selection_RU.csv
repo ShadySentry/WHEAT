@@ -1,0 +1,8 @@
+["Please translate Font Name, Font Size, Font Style, and Translation Text. If these fields are blank, they are unavailable for translation."]
+[Category,Object Name,Font Name,Font Size,FontStyle,Original Text,Translation Text,Original Text,Translation Text]
+Description,historicalFilter_tag_selection.apply_btn.btn_Login3,,,,"Menu button","Menu button",,
+Caption,historicalFilter_tag_selection.apply_btn.btn_Login3,Calibri,16,1,"Подтвердить","Подтвердить",,
+Description,historicalFilter_tag_selection.apply_btn,,,,"Enter","Enter",,
+Description,historicalFilter_tag_selection.exit_btn2.btn_Login5,,,,"Menu button","Menu button",,
+Caption,historicalFilter_tag_selection.exit_btn2.btn_Login5,Calibri,16,1,"Закрыть","Закрыть",,
+Description,historicalFilter_tag_selection.exit_btn2,,,,"Esc","Esc",,

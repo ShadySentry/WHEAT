@@ -1,0 +1,15 @@
+// GAB iFIX 5.5 -> 6.0
+//
+//#define	GAB_N	16
+VERSION	0x081094
+PBHDR	// pbhdr		 block header
+DESC	// desc
+LBI[16]		//subtag[GAB_N];
+CHAR[192]	//almdata (GAB_N x 12 bytes)
+UCHAR	// enab;		/* Composite enab */
+UCHAR	// nalm;		/* Composite enab */
+UINT16	// options;
+IO_INFO	// io;	/* contact output info */
+UINT16	// spare1;
+UINT32[4]	// spares[4];
+

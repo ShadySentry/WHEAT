@@ -1,0 +1,12 @@
+// BPL iFIX 5.5 -> 6.0
+VERSION	0x092995
+SCHDR	// shdr		 secondary block header  
+DESC	// desc															
+EGUREC		// egurec;	egu info (analog)  
+EGU_DESC	 //LongEguDesc			
+FCONST[21]  //FCONST[21] inputs	
+FCONST[20]	 //FCONST[20] outputs
+FCONST[20]  //FCONST[20]	Slopes
+PDATA		// pdata
+
+

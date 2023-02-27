@@ -1,0 +1,13 @@
+Opening translation file: C:\PROGRAM FILES (X86)\GE\IFIX\PIC\right_m_h_EN.csv
+Start Translation: Sun Feb 26 14:34:46 2023
+
+Error (Line: 3) >>Object not found: right_m_h.Group28.DDChart2
+Error (Line: 4) >>Object not found: right_m_h.Group28.Text1159
+Error (Line: 7) >>Object not found: right_m_h.Group10.btn_simple_square10.btn_simple_round_caption11
+Error (Line: 8) >>Object not found: right_m_h.Group10.btn_simple_square11.btn_simple_round_caption12
+Error (Line: 9) >>Object not found: right_m_h.Group10.digits_transp_s5.transp_s_digits_Name5
+Error (Line: 10) >>Object not found: right_m_h.Group10.digits_transp_s5.transp_s_digits_text5
+Error (Line: 11) >>Object not found: right_m_h.Group10.Text9
+End Translation: Sun Feb 26 14:34:46 2023
+
+Translation time (sec): 0.152

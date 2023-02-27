@@ -1,0 +1,526 @@
+{
+    "tag_type": [
+        {
+            "type_name": "CTR",
+            "category": {
+                "General": [
+                    {
+                        "A_TAG": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.tagName"
+                            ]
+                        }
+                    },
+                    {
+                        "A_DESC": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 1
+                    }
+                ],
+                "Limits_and_Scaling": [
+                    {
+                        "A_ELO": {
+                            "default": "0.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_EHI": {
+                            "default": "100.00",
+                            "field_min": "-3.4E+38",
+                            "field_max": "3.4E+38",
+                            "field_precision": "16",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.minValue",
+                                "TagCommonValidators.maxValue",
+                                "TagCommonValidators.maxPrecision",
+                                "TagCommonValidators.isEmpty",
+                                "TagCommonValidators.eguValuesNotEqual"
+                            ]
+                        }
+                    },
+                    {
+                        "A_EGUDESC": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_LIMIT": {
+                            "default": "0",
+                            "enum": "",
+                            "datatype": "number",
+                            "validators": [
+                                "TagCommonValidators.isEmpty"
+                            ]
+                        }
+                    },
+                    {
+                        "A_GET1": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.blockFiledValidation"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 2
+                    }
+                ],
+                "Alarms_Options": [
+                    {
+                        "Alarm_Areas": {
+                            "default": "ALL",
+                            "enum": [
+                                ""
+                            ],
+                            "datatype": "string",
+                            "applies_to": [
+                                "A_AREA1",
+                                "A_AREA2",
+                                "A_AREA3",
+                                "A_AREA4",
+                                "A_AREA5",
+                                "A_AREA6",
+                                "A_AREA7",
+                                "A_AREA8",
+                                "A_AREA9",
+                                "A_AREA10",
+                                "A_AREA11",
+                                "A_AREA12",
+                                "A_AREA13",
+                                "A_AREA14",
+                                "A_AREA15"
+                            ]
+                        }
+                    },
+                    {
+                        "A_IENAB": {
+                            "default": "ENABLE",
+                            "enum": [
+                                "DISABLE",
+                                "ENABLE"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_PRI": {
+                            "default": "LOW",
+                            "enum": [
+                                "INFO",
+                                "LOW",
+                                "LOLO",
+                                "MEDIUM",
+                                "HIGH",
+                                "HIHI",
+                                "CRITICAL"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_AREA1": {
+                            "default": "ALL",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA2": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA3": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA4": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA5": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA6": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA7": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA8": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA9": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA10": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA11": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA12": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA13": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA14": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_AREA15": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_IALMSHLVENAB": {
+                            "default": "DISABLE",
+                            "enum": [
+                                "ENABLE",
+                                "DISABLE"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_ALMSHELVEPOLICY": {
+                            "default": "",
+                            "enum": [
+                                ""
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "rank": 3
+                    }
+                ],
+                "E-Signature": [
+                    {
+                        "A_ESIGTYPE": {
+                            "default": "NONE",
+                            "enum": [
+                                "NONE",
+                                "PERFONLY",
+                                "PERFVERI"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_ESIGCONT": {
+                            "default": "YES",
+                            "enum": [
+                                "YES",
+                                "NO"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_ESIGACK": {
+                            "default": "NO",
+                            "enum": [
+                                "YES",
+                                "NO"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_ESIGREQ_COMMENT": {
+                            "default": "NO",
+                            "enum": [
+                                "YES",
+                                "NO"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_ESIGTRAP": {
+                            "default": "REJECT",
+                            "enum": [
+                                "REJECT",
+                                "ACCEPT",
+                                "LOG"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "rank": 4
+                    }
+                ],
+                "Advanced_Options": [
+                    {
+                        "A_MODE": {
+                            "default": "CLOSE",
+                            "enum": [
+                                "CLOSE",
+                                "OPEN",
+                                "COS"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_PASS": {
+                            "default": "CTR",
+                            "enum": [
+                                "CTR",
+                                "INP",
+                                "ALM",
+                                "LIM"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_IAM": {
+                            "default": "AUTO",
+                            "enum": [
+                                "AUTO",
+                                "MANL"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_CLR": {
+                            "default": "NO",
+                            "enum": [
+                                "YES",
+                                "NO"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_CHAIN": {
+                            "default": "NO",
+                            "enum": [
+                                "YES",
+                                "NO"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "Security_Areas": {
+                            "default": "NONE",
+                            "enum": [
+                                ""
+                            ],
+                            "datatype": "string",
+                            "applies_to": [
+                                "A_SA1",
+                                "A_SA2",
+                                "A_SA3"
+                            ]
+                        }
+                    },
+                    {
+                        "A_SA1": {
+                            "default": "NONE",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_SA2": {
+                            "default": "NONE",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_SA3": {
+                            "default": "NONE",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_PREV": {
+                            "default": "",
+                            "enum": "",
+                            "validators": []
+                        }
+                    },
+                    {
+                        "A_NEXT": {
+                            "default": "",
+                            "enum": "",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.blockName"
+                            ]
+                        }
+                    },
+                    {
+                        "A_ALMEXT1": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "A_ALMEXT2": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 5
+                    }
+                ]
+            }
+        }
+    ]
+}

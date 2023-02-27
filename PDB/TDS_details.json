@@ -1,0 +1,93 @@
+{
+    "tag_type": [
+        {
+            "type_name": "TDS",
+            "category": {
+                "General": [
+                    {
+                        "A_TAG": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.tagName"
+                            ]
+                        }
+                    },
+                    {
+                        "A_DESC": {
+                            "default": "",
+                            "enum": "",
+                            "datatype": "string",
+                            "validators": [
+                                "TagCommonValidators.maxLength"
+                            ]
+                        }
+                    },
+                    {
+                        "rank": 1
+                    }
+                ],
+                "Advanced_Options": [
+                    {
+                        "A_PREV": {
+                            "default": "",
+                            "enum": "",
+                            "validators": []
+                        }
+                    },
+                    {
+                        "A_NEXT": {
+                            "default": "",
+                            "enum": "",
+                            "validators": [
+                                "TagCommonValidators.maxLength",
+                                "TagCommonValidators.blockName"
+                            ]
+                        }
+                    },
+                    {
+                        "A_MODE": {
+                            "default": "CLOSE",
+                            "enum": [
+                                "CLOSE",
+                                "OPEN",
+                                "COS"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_FMT": {
+                            "default": "MDY",
+                            "enum": [
+                                "MDY",
+                                "MDY4",
+                                "YMD",
+                                "Y4MD",
+                                "DMY",
+                                "DMY4"
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "A_SEP": {
+                            "default": "/",
+                            "enum": [
+                                "/",
+                                "-",
+                                " "
+                            ],
+                            "datatype": "string"
+                        }
+                    },
+                    {
+                        "rank": 2
+                    }
+                ]
+            }
+        }
+    ]
+}
