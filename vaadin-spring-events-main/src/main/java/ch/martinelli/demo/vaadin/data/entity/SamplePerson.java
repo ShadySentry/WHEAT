@@ -1,7 +1,9 @@
 package ch.martinelli.demo.vaadin.data.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 @Entity
 public class SamplePerson extends AbstractEntity {
@@ -13,6 +15,17 @@ public class SamplePerson extends AbstractEntity {
     private LocalDate dateOfBirth;
     private String occupation;
     private boolean important;
+
+    @OneToMany(mappedBy = "person")
+    private List<OperatorToDoItems> actions;
+
+    public List<OperatorToDoItems> getActions() {
+        return actions;
+    }
+
+    public void setActions(List<OperatorToDoItems> actions) {
+        this.actions = actions;
+    }
 
     public String getFirstName() {
         return firstName;
