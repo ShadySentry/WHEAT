@@ -22,6 +22,9 @@ public class SamplePersonService {
     public Optional<SamplePerson> get(UUID id) {
         return repository.findById(id);
     }
+    public SamplePerson getAny(){
+        return repository.findAll().get(0);
+    }
 
     public SamplePerson save(SamplePerson entity) {
         return repository.save(entity);

@@ -1,0 +1,9 @@
+.warn {
+    background-color: yellow;
+}
+.rejected{
+    background-color: #e61414;
+}
+.confirmed{
+    background-color: #00853D;
+}

@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.transaction.Transactional;
 import java.io.FileReader;
 import java.util.HashMap;
 import java.util.List;
@@ -112,7 +113,7 @@ public class CsvImporter {
                     ActionDescriptions actionDescription = ActionDescriptions.builder()
                             .actionNumber(Integer.valueOf(actionNumber))
                             .actionNameRu(nameRu)
-                            .getActionNameEn(nameEn)
+                            .actionNameEn(nameEn)
                             .operation(operation)
                             .build();
 
@@ -139,7 +140,8 @@ public class CsvImporter {
         saveRecords();
     }
 
-    private void saveRecords() {
+    @Transactional
+    void saveRecords() {
         for (Operation operation : operations.values()) {
             Operation foundOperation = operationRepository.findByOperationNumber(operation.getOperationNumber());
             if (foundOperation != null) {
@@ -184,7 +186,7 @@ public class CsvImporter {
 
             if (foundAction != null) {
                 foundAction.setActionNameRu(action.getActionNameRu());
-                foundAction.setGetActionNameEn(action.getGetActionNameEn());
+                foundAction.setActionNameEn(action.getActionNameEn());
                 foundAction.setOperation(operation);
 
                 foundAction=actionDescriptionRepository.save(foundAction);

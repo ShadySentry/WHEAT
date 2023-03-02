@@ -20,7 +20,7 @@ public class Operation extends AbstractEntity{
     private String operationName_en;
     private String operationDescription;
 
-    @OneToMany
+    @OneToMany(mappedBy = "operation")
     private List<ActionDescriptions> actionsList;
 
 }

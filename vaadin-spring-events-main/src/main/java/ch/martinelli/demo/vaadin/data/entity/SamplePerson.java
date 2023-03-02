@@ -16,16 +16,14 @@ public class SamplePerson extends AbstractEntity {
     private String occupation;
     private boolean important;
 
-    @OneToMany(mappedBy = "person")
-    private List<OperatorToDoItems> actions;
 
-    public List<OperatorToDoItems> getActions() {
-        return actions;
-    }
-
-    public void setActions(List<OperatorToDoItems> actions) {
-        this.actions = actions;
-    }
+//    public List<OperatorToDoItems> getActions() {
+//        return actions;
+//    }
+//
+//    public void setActions(List<OperatorToDoItems> actions) {
+//        this.actions = actions;
+//    }
 
     public String getFirstName() {
         return firstName;

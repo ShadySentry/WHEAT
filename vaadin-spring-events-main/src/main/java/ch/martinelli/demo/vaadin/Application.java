@@ -1,9 +1,12 @@
 package ch.martinelli.demo.vaadin;
 
-import ch.martinelli.demo.vaadin.data.entity.ActionDescriptions;
-import ch.martinelli.demo.vaadin.data.entity.Operation;
+import ch.martinelli.demo.vaadin.data.dto.OperatorToDoItemDTO;
+import ch.martinelli.demo.vaadin.data.entity.*;
+import ch.martinelli.demo.vaadin.data.service.SamplePersonRepository;
+import ch.martinelli.demo.vaadin.data.service.ToDoItemsService;
 import ch.martinelli.demo.vaadin.repository.ActionDescriptionRepository;
 import ch.martinelli.demo.vaadin.repository.OperationRepository;
+import ch.martinelli.demo.vaadin.repository.ProductInfoRepository;
 import ch.martinelli.demo.vaadin.views.CsvImporter;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.page.AppShellConfigurator;
@@ -42,6 +45,9 @@ public class Application extends SpringBootServletInitializer implements AppShel
     @EventListener(ApplicationReadyEvent.class)
     public void runAfterStart(){
         populateRecords();
+        initOperation1();
+        //todo remove all bellow
+        List<OperatorToDoItemDTO> items = toDoItemsService.getOperatorToDosByOperationNumber(1);
     }
 
 
@@ -49,39 +55,50 @@ public class Application extends SpringBootServletInitializer implements AppShel
     OperationRepository operationRepository;
     @Autowired
     ActionDescriptionRepository actionDescriptionRepository;
+    @Autowired
+    ProductInfoRepository productInfoRepository;
+    @Autowired
+    SamplePersonRepository samplePersonRepository;
     private void populateRecords() {
         List<Operation> operations = operationRepository.findAll();
 
         List<ActionDescriptions> descriptions = actionDescriptionRepository.findAll();
-        CsvImporter importer = new CsvImporter(operationRepository, actionDescriptionRepository);
 
-        importer.importDBData();
+        if(operations.size()==0 || descriptions.size()==0){
+            CsvImporter importer = new CsvImporter(operationRepository, actionDescriptionRepository);
 
-/*
-        if(operations.size()>0 && descriptions.size()>0){
+            importer.importDBData();
+        }
+        List<ProductInfo> productInfos = productInfoRepository.findAll();
+        if(productInfos.size()==0){
+            ProductInfo productInfo = ProductInfo.builder()
+                    .productIdentityInfo("sample item #1")
+                    .description("item used to show initial structure")
+                    .build();
+
+            productInfo=productInfoRepository.save(productInfo);
+        }
+        List<SamplePerson> persons = samplePersonRepository.findAll();
+        if(persons.size()==0){
+            SamplePerson person = new SamplePerson();
+            person.setFirstName("First name");
+            person.setLastName("Last name");
+            person.setPhone("+380965552211");
+            samplePersonRepository.save(person);
+        }
+
+
+    }
+    @Autowired
+    private ToDoItemsService toDoItemsService;
+    private void initOperation1(){
+        ProductInfo info= productInfoRepository.findByProductIdentityInfo("sample item #1");
+        Operation operation1=  operationRepository.findByOperationNumber(1);
+        if(info==null || operation1==null){
             return;
         }
 
-        Operation operation = Operation.builder()
-                .operationNumber(1)
-                .operationName("Cooling chamber")
-                .operationDescription("description for operation 1")
-                .build();
-
-        operation= operationRepository.save(operation);
-
-        ActionDescriptions description1 = ActionDescriptions.builder()
-                .actionNumber(1)
-                .operationDescriptionRu("описание для операции 1")
-                .getOperationDescriptionEn("description for operation 1")
-                .build();
-
-        description1=actionDescriptionRepository.save(description1);
-
-        description1.setOperation(operation);
-        description1=actionDescriptionRepository.save(description1);
-        System.out.println(description1);
-        */
+        toDoItemsService.build(info,operation1.getOperationNumber());
     }
 
 }

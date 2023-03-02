@@ -15,7 +15,7 @@ public class ActionDescriptions extends AbstractEntity{
 
     private Integer actionNumber;
     private String actionNameRu;
-    private String getActionNameEn;
+    private String actionNameEn;
 
     @ManyToOne()
     private Operation operation;

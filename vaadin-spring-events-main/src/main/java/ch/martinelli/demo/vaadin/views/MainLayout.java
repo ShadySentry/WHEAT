@@ -45,7 +45,7 @@ public class MainLayout extends AppLayout {
         appName.addClassNames("app-name");
 
         com.vaadin.flow.component.html.Section section = new com.vaadin.flow.component.html.Section(appName,
-                createNavigation(), createFooter());
+                createNavigation()/*, createFooter()*/);
         section.addClassNames("drawer-section");
         return section;
     }
@@ -58,6 +58,7 @@ public class MainLayout extends AppLayout {
 
         nav.addItem(new AppNavItem("Grid", GridView.class, "la la-columns"));
         nav.addItem(new AppNavItem("Form", FormView.class, "la la-columns"));
+        nav.addItem(new AppNavItem("ToDos",ToDoGridView.class,"la la-columns"));
 
         return nav;
     }
