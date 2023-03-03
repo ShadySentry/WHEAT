@@ -10,6 +10,9 @@ import ch.martinelli.demo.vaadin.repository.OperationRepository;
 import ch.martinelli.demo.vaadin.repository.OperatorToDoItemsRepository;
 import ch.martinelli.demo.vaadin.repository.ProductInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -17,7 +20,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
@@ -98,5 +103,21 @@ public class ToDoItemsService {
     }
 
 
+    public Page<OperatorToDoItem> list(Pageable pageable) {
+        return toDoItemsRepository.findAll(pageable);
+    }
 
+    public Page<OperatorToDoItemDTO> listDto(Pageable pageable) {
+        Page page =toDoItemsRepository.findAll(pageable);
+        Page<OperatorToDoItemDTO> dtoPage = page.map(new Function<OperatorToDoItem,OperatorToDoItemDTO>(){
+            @Override
+            public OperatorToDoItemDTO apply(OperatorToDoItem item) {
+                OperatorToDoItemDTO dto = item.toDto();
+                return dto;
+            }
+        });
+
+
+        return dtoPage;
+    }
 }

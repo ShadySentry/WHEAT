@@ -56,6 +56,7 @@ public class MainLayout extends AppLayout {
         AppNav nav = new AppNav();
         nav.addClassNames("app-nav");
 
+        nav.addItem(new AppNavItem("product",ProductSelectionView.class,"la la-columns"));
         nav.addItem(new AppNavItem("Grid", GridView.class, "la la-columns"));
         nav.addItem(new AppNavItem("Form", FormView.class, "la la-columns"));
         nav.addItem(new AppNavItem("ToDos",ToDoGridView.class,"la la-columns"));

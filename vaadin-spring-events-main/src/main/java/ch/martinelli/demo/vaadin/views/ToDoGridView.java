@@ -2,6 +2,8 @@ package ch.martinelli.demo.vaadin.views;
 
 import ch.martinelli.demo.vaadin.data.dto.OperatorToDoItemDTO;
 import ch.martinelli.demo.vaadin.data.entity.ActionType;
+import ch.martinelli.demo.vaadin.data.entity.ProductInfo;
+import ch.martinelli.demo.vaadin.data.service.OperationService;
 import ch.martinelli.demo.vaadin.data.service.SamplePersonService;
 import ch.martinelli.demo.vaadin.data.service.ToDoItemsService;
 import com.vaadin.flow.component.UI;
@@ -10,32 +12,55 @@ import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dependency.Uses;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.router.PageTitle;
-import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.*;
+import com.vaadin.flow.server.VaadinService;
+import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.data.domain.PageRequest;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.UUID;
 
 @PageTitle("Todo list")
+//@Route(value = "todos/:operationId", layout = MainLayout.class)
 @Route(value = "todos", layout = MainLayout.class)
 @Uses(Icon.class)
 @CssImport(value = "./styles/dynamic-grid-row-background-color.css",
         themeFor = "vaadin-grid")
-public class ToDoGridView extends VerticalLayout implements ApplicationListener<SamplePersonAddedEvent> {
+public class ToDoGridView extends VerticalLayout implements ApplicationListener<SamplePersonAddedEvent>, HasUrlParameter<String>{
     private String greenColor = "#00853D";
     private String redColor = "#e61414";
-
+    private UUID operationId;
+    private UUID productId;
     private Grid<OperatorToDoItemDTO> grid = new Grid<>(OperatorToDoItemDTO.class, false);
+    private final OperationService operationService;
+
+    @Override
+    public void setParameter(BeforeEvent event, @OptionalParameter String id) {
+        if (id != null && !id.isEmpty()) {
+            operationId = UUID.fromString(id);
+        }
+
+        ProductInfo productInfo = VaadinService.getCurrent().getContext().getAttribute(ProductInfo.class);
+        productId = productInfo.getId();
+
+//        pageTitle= operationService.findById(operationId).get().getOperationName_en();
+        Notification.show("Loaded: " + productInfo.toString());
+    }
 
     @Autowired
-    public ToDoGridView(ToDoItemsService toDoItemsService, ConfigurableApplicationContext applicationContext, SamplePersonService personService) {
+    public ToDoGridView(ToDoItemsService toDoItemsService, ConfigurableApplicationContext applicationContext, OperationService operationService,SamplePersonService personService) {
+        this.operationService = operationService;
+        setHeightFull();
         grid.setClassNameGenerator(item -> {
             if (item.getAction() == ActionType.CONFIRM) {
                 return "confirmed";
@@ -46,74 +71,74 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
             return "unprocessed";
         });
 
-        Grid.Column<OperatorToDoItemDTO> operationNoCol = grid.addColumn(OperatorToDoItemDTO::getOperation);
-        operationNoCol.setVisible(false);
-        Grid.Column<OperatorToDoItemDTO> actionNumberCol = grid.addColumn(OperatorToDoItemDTO::getActionNumber);
-        actionNumberCol.setVisible(false);
 
         Grid.Column<OperatorToDoItemDTO> stepCol = grid.addColumn(item -> item.getOperation() + "." + item.getActionNumber())
-                .setHeader("#");
-        stepCol.setAutoWidth(true);
+                .setHeader("#")
+                .setWidth("75px")
+                .setFlexGrow(0);
 
         Grid.Column<OperatorToDoItemDTO> descriptionCol = grid.addColumn(OperatorToDoItemDTO::getActionDescriptionRu)
-                .setHeader("Description");
-        descriptionCol.setAutoWidth(true);
-        Grid.Column<OperatorToDoItemDTO> actionBtCol = grid.addComponentColumn(item -> {
+                .setHeader("Description")
+                .setFlexGrow(2);
 
+//        descriptionCol.setAutoWidth(true);
+
+        Grid.Column<OperatorToDoItemDTO> actionBtCol = grid.addComponentColumn(item -> {
                     Span buttonsWithTimeStamp = new Span();
                     Button confirmBt = new Button("Confirm");
                     confirmBt.addClassName("accept-button");
                     confirmBt.addThemeVariants(ButtonVariant.LUMO_PRIMARY, ButtonVariant.LUMO_SMALL);
                     confirmBt.getStyle().set("background-color", greenColor);
 
-
-
                     Button rejectBt = new Button("Reject");
                     rejectBt.addClassName("accept-button");
                     rejectBt.addThemeVariants(ButtonVariant.LUMO_PRIMARY, ButtonVariant.LUMO_SMALL);
                     rejectBt.getStyle().set("background-color", redColor);
-                    Span span = new Span(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy\tE HH:mm:ss")));
-                    span.setVisible(false);
+
+                    Span spanActionStatus = new Span();
+
+                    Span spanDateTime = new Span();
+                    spanDateTime.setVisible(false);
 
 
                     confirmBt.addClickListener(e -> {
-                        confirmBt.setVisible(false);
-                        rejectBt.setVisible(false);
-                        span.setVisible(true);
-                        span.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy\tE HH:mm:ss")));
+//                        spanDateTime.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy\tE HH:mm:ss")));
                         item.setAction(ActionType.CONFIRM);
                         item.setActionPerformedDT(LocalDateTime.now());
-//                        grid.getDataProvider().refreshItem(item);
                         grid.getDataProvider().refreshAll();
-
+                        //todo update and log value
                     });
+
                     rejectBt.addClickListener(e -> {
                         item.setAction(ActionType.REJECT);
+                        item.setActionPerformedDT(LocalDateTime.now());
                         grid.getDataProvider().refreshAll();
 
                     });
 
-                    if(item.getAction()==ActionType.CONFIRM){
+                    if (item.getAction() == ActionType.CONFIRM || item.getAction() == ActionType.REJECT) {
                         confirmBt.setVisible(false);
                         rejectBt.setVisible(false);
-                        span.setVisible(true);
-                        span.setText(item.getActionPerformedDT().format(DateTimeFormatter.ofPattern("dd/MM/yyyy\tE HH:mm:ss")));
+                        spanDateTime.setVisible(true);
+                        String actionText = item.getAction() == ActionType.CONFIRM ? "Confirmed at " : "Rejected at ";
+                        spanActionStatus.setText(actionText);
+                        spanDateTime.setText(item.getActionPerformedDT().format(DateTimeFormatter.ofPattern("dd/MM/yyyy\tE HH:mm:ss")));
                     }
-                    buttonsWithTimeStamp.add(new VerticalLayout(confirmBt, rejectBt), span);
+
+                    buttonsWithTimeStamp.add(new VerticalLayout(confirmBt, rejectBt), new VerticalLayout(spanActionStatus, spanDateTime));
                     return buttonsWithTimeStamp;
                 })
-                .setHeader("Action");
+                .setHeader("Action")
+                .setWidth("170px")
+                .setFlexGrow(0);
 
 
-        List<OperatorToDoItemDTO> testItems = loadTestItems(personService);
-        grid.setItems(testItems);
-//        grid.setItems(toDoItemsService.getOperatorToDosByOperationNumber(1));
+        grid.setItems(query -> toDoItemsService.listDto(PageRequest.of(query.getPage(), query.getPageSize(),
+                VaadinSpringDataHelpers.toSpringDataSort(query))).stream());
 
-//        grid.setItems(query -> samplePersonService.list(PageRequest.of(query.getPage(), query.getPageSize(),
-//                VaadinSpringDataHelpers.toSpringDataSort(query))).stream());
+        grid.addThemeVariants(GridVariant.LUMO_WRAP_CELL_CONTENT);
 
-
-        grid.setHeight("700px");
+//        grid.setHeight("700px");
         add(grid);
 
         // Register as EventListener
@@ -132,8 +157,8 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
                         .person(personService.getAny())
                         .build(),
                 OperatorToDoItemDTO.builder()
-                        .operation(1)
-                        .actionNumber(2)
+                        .operation(10)
+                        .actionNumber(99)
                         .actionDescriptionRu("описание 1.2 RU 123456789123 45678912345678912345678912 3456789123456789123456789123456789123456789123456789")
                         .actionDescriptionEn("description 1.2 EN")
                         .action(ActionType.CONFIRM)

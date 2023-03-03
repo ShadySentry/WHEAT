@@ -29,7 +29,7 @@ import java.util.List;
  * and some desktop browsers.
  *
  */
-@Push // REMARK Enable Push to refres the View
+@Push // REMARK Enable Push to refresh the View
 @SpringBootApplication
 @Theme(value = "vaadin-spring-events")
 @PWA(name = "vaadin-spring-events", shortName = "vaadin-spring-events", offlineResources = {})
