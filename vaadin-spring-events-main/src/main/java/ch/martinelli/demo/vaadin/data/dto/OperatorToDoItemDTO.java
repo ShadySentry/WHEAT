@@ -7,12 +7,14 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 
 @Data
 @AllArgsConstructor
 @Builder
 public class OperatorToDoItemDTO {
+    private UUID operatorToDoItemId;
     private Integer operation;
     private Integer actionNumber;
     private String actionDescriptionRu;

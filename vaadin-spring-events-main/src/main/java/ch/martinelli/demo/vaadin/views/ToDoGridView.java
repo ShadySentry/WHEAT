@@ -2,8 +2,10 @@ package ch.martinelli.demo.vaadin.views;
 
 import ch.martinelli.demo.vaadin.data.dto.OperatorToDoItemDTO;
 import ch.martinelli.demo.vaadin.data.entity.ActionType;
+import ch.martinelli.demo.vaadin.data.entity.Operation;
 import ch.martinelli.demo.vaadin.data.entity.ProductInfo;
 import ch.martinelli.demo.vaadin.data.service.OperationService;
+import ch.martinelli.demo.vaadin.data.service.ProductInfoService;
 import ch.martinelli.demo.vaadin.data.service.SamplePersonService;
 import ch.martinelli.demo.vaadin.data.service.ToDoItemsService;
 import com.vaadin.flow.component.UI;
@@ -13,13 +15,14 @@ import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dependency.Uses;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.*;
 import com.vaadin.flow.server.VaadinService;
-import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -36,7 +39,7 @@ import java.util.UUID;
 @Uses(Icon.class)
 @CssImport(value = "./styles/dynamic-grid-row-background-color.css",
         themeFor = "vaadin-grid")
-public class ToDoGridView extends VerticalLayout implements ApplicationListener<SamplePersonAddedEvent>, HasUrlParameter<String>{
+public class ToDoGridView extends VerticalLayout implements ApplicationListener<SamplePersonAddedEvent>, HasUrlParameter<String> {
     private String greenColor = "#00853D";
     private String redColor = "#e61414";
     private UUID operationId;
@@ -58,9 +61,12 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
     }
 
     @Autowired
-    public ToDoGridView(ToDoItemsService toDoItemsService, ConfigurableApplicationContext applicationContext, OperationService operationService,SamplePersonService personService) {
+    public ToDoGridView(ToDoItemsService toDoItemsService, ConfigurableApplicationContext applicationContext, OperationService operationService, ProductInfoService productInfoService) {
         this.operationService = operationService;
         setHeightFull();
+
+        createOperationInfo(productInfoService);
+
         grid.setClassNameGenerator(item -> {
             if (item.getAction() == ActionType.CONFIRM) {
                 return "confirmed";
@@ -83,6 +89,7 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
 
 //        descriptionCol.setAutoWidth(true);
 
+
         Grid.Column<OperatorToDoItemDTO> actionBtCol = grid.addComponentColumn(item -> {
                     Span buttonsWithTimeStamp = new Span();
                     Button confirmBt = new Button("Confirm");
@@ -100,11 +107,15 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
                     Span spanDateTime = new Span();
                     spanDateTime.setVisible(false);
 
+// TODO: 04.03.2023 add state update and persist. also add record to log
 
                     confirmBt.addClickListener(e -> {
 //                        spanDateTime.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy\tE HH:mm:ss")));
                         item.setAction(ActionType.CONFIRM);
                         item.setActionPerformedDT(LocalDateTime.now());
+
+                        toDoItemsService.updateActionState(item);
+
                         grid.getDataProvider().refreshAll();
                         //todo update and log value
                     });
@@ -112,8 +123,9 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
                     rejectBt.addClickListener(e -> {
                         item.setAction(ActionType.REJECT);
                         item.setActionPerformedDT(LocalDateTime.now());
-                        grid.getDataProvider().refreshAll();
 
+                        toDoItemsService.updateActionState(item);
+                        grid.getDataProvider().refreshAll();
                     });
 
                     if (item.getAction() == ActionType.CONFIRM || item.getAction() == ActionType.REJECT) {
@@ -122,7 +134,9 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
                         spanDateTime.setVisible(true);
                         String actionText = item.getAction() == ActionType.CONFIRM ? "Confirmed at " : "Rejected at ";
                         spanActionStatus.setText(actionText);
-                        spanDateTime.setText(item.getActionPerformedDT().format(DateTimeFormatter.ofPattern("dd/MM/yyyy\tE HH:mm:ss")));
+                        if(item.getActionPerformedDT()!=null) {
+                            spanDateTime.setText(item.getActionPerformedDT().format(DateTimeFormatter.ofPattern("dd/MM/yyyy\tE HH:mm:ss")));
+                        }
                     }
 
                     buttonsWithTimeStamp.add(new VerticalLayout(confirmBt, rejectBt), new VerticalLayout(spanActionStatus, spanDateTime));
@@ -133,10 +147,13 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
                 .setFlexGrow(0);
 
 
-        grid.setItems(query -> toDoItemsService.listDto(PageRequest.of(query.getPage(), query.getPageSize(),
-                VaadinSpringDataHelpers.toSpringDataSort(query))).stream());
+        grid.setItems(query -> toDoItemsService.listDtoSortByOperationNumber(productId, operationId,
+                PageRequest.of(query.getPage(), query.getPageSize())).stream());
 
         grid.addThemeVariants(GridVariant.LUMO_WRAP_CELL_CONTENT);
+        grid.sort(List.of(
+
+        ));
 
 //        grid.setHeight("700px");
         add(grid);
@@ -144,6 +161,35 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
         // Register as EventListener
         // REMARK A Route is not a regular Spring Bean so this must be done!
         applicationContext.addApplicationListener(this);
+    }
+
+    private void createOperationInfo(ProductInfoService productInfoService) {
+        ProductInfo loadedInfo = VaadinService.getCurrent().getContext().getAttribute(ProductInfo.class);
+        Operation loadedOperation = VaadinService.getCurrent().getContext().getAttribute(Operation.class);
+        if (loadedInfo == null || loadedOperation == null) {
+            return;
+        }
+        productId = loadedInfo.getId();
+        operationId = loadedOperation.getId();
+
+        ProductInfo productInfo = productInfoService.findById(loadedInfo.getId()).get();
+        Label productName = new Label(productInfo.getProductIdentityInfo());
+
+
+        Operation operation = operationService.findById(loadedOperation.getId()).get();
+
+        String operationNameText = "";
+        if (operation.getOperationName_en().isEmpty()) {
+            operationNameText = String.format("Операция # %s: %s",
+                    operation.getOperationNumber(), operation.getOperationName_ru());
+        } else {
+            operationNameText = String.format("Операция # %s: %s",
+                    operation.getOperationNumber(), operation.getOperationName_en());
+        }
+
+        Label operationNameLb = new Label(operationNameText);
+        Label operDescriptionLb = new Label(operation.getOperationDescription());
+        add(productName, new HorizontalLayout(operationNameLb, operDescriptionLb));
     }
 
     private List<OperatorToDoItemDTO> loadTestItems(SamplePersonService personService) {

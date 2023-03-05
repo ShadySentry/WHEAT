@@ -39,6 +39,7 @@ public class OperatorToDoItem extends AbstractEntity {
     public OperatorToDoItemDTO toDto() {
         OperatorToDoItemDTO dto = OperatorToDoItemDTO
                 .builder()
+                .operatorToDoItemId(this.getId())
                 .operation(this.operation.getOperationNumber())
                 .actionNumber(this.actionDescriptions.getActionNumber())
                 .actionDescriptionRu(actionDescriptions.getActionNameRu())

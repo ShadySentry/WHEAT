@@ -4,23 +4,27 @@ import ch.martinelli.demo.vaadin.data.entity.Operation;
 import ch.martinelli.demo.vaadin.data.entity.ProductInfo;
 import ch.martinelli.demo.vaadin.data.service.OperationService;
 import ch.martinelli.demo.vaadin.data.service.SamplePersonService;
+import ch.martinelli.demo.vaadin.data.service.ToDoItemsService;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dependency.Uses;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.grid.GridSortOrder;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.provider.SortDirection;
 import com.vaadin.flow.router.*;
 import com.vaadin.flow.server.VaadinService;
-import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 
+import java.util.List;
 import java.util.UUID;
 
 @PageTitle("Available Operations")
@@ -38,6 +42,7 @@ public class OperationsView extends VerticalLayout implements HasUrlParameter<St
     private Grid<Operation> grid = new Grid<>(Operation.class, false);
 
     private final OperationService operationService;
+    private final ToDoItemsService toDoItemsService;
 
     @Override
     public void setParameter(BeforeEvent event, @OptionalParameter String id) {
@@ -50,13 +55,11 @@ public class OperationsView extends VerticalLayout implements HasUrlParameter<St
     }
 
     @Autowired
-    public OperationsView(OperationService operationService, ConfigurableApplicationContext applicationContext, SamplePersonService personService) {
+    public OperationsView(OperationService operationService, ConfigurableApplicationContext applicationContext, SamplePersonService personService, ToDoItemsService toDoItemsService) {
 //        grid.setItems(testItems);
         this.operationService = operationService;
+        this.toDoItemsService = toDoItemsService;
 
-        //todo add sorting by number
-        grid.setItems(query ->
-                operationService.list(PageRequest.of(query.getPage(), query.getPageSize(), VaadinSpringDataHelpers.toSpringDataSort(query))).stream());
 
         setHeightFull();
 
@@ -88,6 +91,13 @@ public class OperationsView extends VerticalLayout implements HasUrlParameter<St
                 .setWidth("120px")
                 .setFlexGrow(0);
 
+
+
+        //todo add sorting by number
+//        grid.setItems(operationService.getAll());
+        grid.setItems(query ->
+                operationService.list(PageRequest.of(query.getPage(), query.getPageSize(), Sort.by("operationNumber").ascending())).stream());
+        grid.sort(List.of(new GridSortOrder<Operation>(operationNumberCol, SortDirection.ASCENDING)));
 
         add(grid);
     }
@@ -125,14 +135,14 @@ public class OperationsView extends VerticalLayout implements HasUrlParameter<St
         uuid.setValue(operation.getId().toString());
         uuid.setWidthFull();
 
-        Button btnOk = new Button("Continue");
+        Button createItemsAndGotoNextPage = new Button("Continue");
 
 
         dialogLayout.add(operationNumber, nameRu, nameEn, description, uuid);
         dialog.add(dialogLayout);
 
 
-        btnOk.addClickListener(buttonClickEvent -> {
+        createItemsAndGotoNextPage.addClickListener(buttonClickEvent -> {
             //todo goto to next page with selected item
 
             dialog.close();
@@ -140,8 +150,11 @@ public class OperationsView extends VerticalLayout implements HasUrlParameter<St
             Operation selectedOperation = operationService.findById(operation.getId()).get();
 
             VaadinService.getCurrent().getContext().setAttribute(Operation.class, selectedOperation);
+
+            toDoItemsService.build(productInfo.getProductIdentityInfo(),operation.getOperationNumber());
+
             String operationIdAsStringParam = selectedOperation.getId().toString();
-            btnOk.getUI().ifPresent(ui ->
+            createItemsAndGotoNextPage.getUI().ifPresent(ui ->
                     ui.navigate(ToDoGridView.class, operationIdAsStringParam));
         });
 
@@ -150,7 +163,7 @@ public class OperationsView extends VerticalLayout implements HasUrlParameter<St
             dialog.close();
         });
 
-        dialog.getFooter().add(btnOk);
+        dialog.getFooter().add(createItemsAndGotoNextPage);
         dialog.getFooter().add(btnCancel);
 
         return dialog;

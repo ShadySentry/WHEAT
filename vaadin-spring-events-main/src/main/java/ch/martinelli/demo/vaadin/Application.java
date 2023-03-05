@@ -1,7 +1,9 @@
 package ch.martinelli.demo.vaadin;
 
-import ch.martinelli.demo.vaadin.data.dto.OperatorToDoItemDTO;
-import ch.martinelli.demo.vaadin.data.entity.*;
+import ch.martinelli.demo.vaadin.data.entity.ActionDescriptions;
+import ch.martinelli.demo.vaadin.data.entity.Operation;
+import ch.martinelli.demo.vaadin.data.entity.ProductInfo;
+import ch.martinelli.demo.vaadin.data.entity.SamplePerson;
 import ch.martinelli.demo.vaadin.data.service.SamplePersonRepository;
 import ch.martinelli.demo.vaadin.data.service.ToDoItemsService;
 import ch.martinelli.demo.vaadin.repository.ActionDescriptionRepository;
@@ -24,10 +26,9 @@ import java.util.List;
 
 /**
  * The entry point of the Spring Boot application.
- *
+ * <p>
  * Use the @PWA annotation make the application installable on phones, tablets
  * and some desktop browsers.
- *
  */
 @Push // REMARK Enable Push to refresh the View
 @SpringBootApplication
@@ -43,11 +44,11 @@ public class Application extends SpringBootServletInitializer implements AppShel
     }
 
     @EventListener(ApplicationReadyEvent.class)
-    public void runAfterStart(){
+    public void runAfterStart() {
         populateRecords();
-        initOperation1();
+//        initOperation1();
         //todo remove all bellow
-        List<OperatorToDoItemDTO> items = toDoItemsService.getOperatorToDosByOperationNumber(1);
+//        List<OperatorToDoItemDTO> items = toDoItemsService.getOperatorToDosByOperationNumber(1);
     }
 
 
@@ -59,27 +60,28 @@ public class Application extends SpringBootServletInitializer implements AppShel
     ProductInfoRepository productInfoRepository;
     @Autowired
     SamplePersonRepository samplePersonRepository;
+
     private void populateRecords() {
         List<Operation> operations = operationRepository.findAll();
 
         List<ActionDescriptions> descriptions = actionDescriptionRepository.findAll();
 
-        if(operations.size()==0 || descriptions.size()==0){
+        if (operations.size() == 0 || descriptions.size() == 0) {
             CsvImporter importer = new CsvImporter(operationRepository, actionDescriptionRepository);
 
             importer.importDBData();
         }
         List<ProductInfo> productInfos = productInfoRepository.findAll();
-        if(productInfos.size()==0){
+        if (productInfos.size() == 0) {
             ProductInfo productInfo = ProductInfo.builder()
                     .productIdentityInfo("sample item #1")
                     .description("item used to show initial structure")
                     .build();
 
-            productInfo=productInfoRepository.save(productInfo);
+            productInfo = productInfoRepository.save(productInfo);
         }
         List<SamplePerson> persons = samplePersonRepository.findAll();
-        if(persons.size()==0){
+        if (persons.size() == 0) {
             SamplePerson person = new SamplePerson();
             person.setFirstName("First name");
             person.setLastName("Last name");
@@ -89,16 +91,18 @@ public class Application extends SpringBootServletInitializer implements AppShel
 
 
     }
+
     @Autowired
     private ToDoItemsService toDoItemsService;
-    private void initOperation1(){
-        ProductInfo info= productInfoRepository.findByProductIdentityInfo("sample item #1");
-        Operation operation1=  operationRepository.findByOperationNumber(1);
-        if(info==null || operation1==null){
+
+    private void initOperation1() {
+        ProductInfo info = productInfoRepository.findByProductIdentityInfo("sample item #1");
+        Operation operation1 = operationRepository.findByOperationNumber(1);
+        if (info == null || operation1 == null) {
             return;
         }
 
-        toDoItemsService.build(info,operation1.getOperationNumber());
+        toDoItemsService.build(info.getProductIdentityInfo(), operation1.getOperationNumber());
     }
 
 }
