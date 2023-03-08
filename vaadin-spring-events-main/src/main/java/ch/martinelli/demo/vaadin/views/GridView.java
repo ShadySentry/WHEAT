@@ -18,7 +18,7 @@ import org.springframework.data.domain.PageRequest;
 
 @PageTitle("Grid")
 @Route(value = "grid", layout = MainLayout.class)
-@RouteAlias(value = "", layout = MainLayout.class)
+//@RouteAlias(value = "", layout = MainLayout.class)
 @Uses(Icon.class)
 public class GridView extends VerticalLayout implements ApplicationListener<SamplePersonAddedEvent> {
 

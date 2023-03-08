@@ -3,15 +3,17 @@ package ch.martinelli.demo.vaadin.views;
 
 import ch.martinelli.demo.vaadin.components.appnav.AppNav;
 import ch.martinelli.demo.vaadin.components.appnav.AppNavItem;
+import ch.martinelli.demo.vaadin.data.entity.ProductInfo;
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.button.ButtonVariant;
-import com.vaadin.flow.component.html.Footer;
-import com.vaadin.flow.component.html.H1;
-import com.vaadin.flow.component.html.H2;
-import com.vaadin.flow.component.html.Header;
+import com.vaadin.flow.component.html.*;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.server.VaadinService;
 
 /**
  * The main view is a top-level placeholder for other views.
@@ -56,10 +58,11 @@ public class MainLayout extends AppLayout {
         AppNav nav = new AppNav();
         nav.addClassNames("app-nav");
 
-        nav.addItem(new AppNavItem("product",ProductSelectionView.class,"la la-columns"));
-        nav.addItem(new AppNavItem("Grid", GridView.class, "la la-columns"));
-        nav.addItem(new AppNavItem("Form", FormView.class, "la la-columns"));
-        nav.addItem(new AppNavItem("ToDos",ToDoGridView.class,"la la-columns"));
+        nav.addItem(new AppNavItem("Home",ProductSelectionView.class,"la la-columns"));
+        //todo add back and forward links
+        nav.addItem(new AppNavItem("Operations", OperationsView.class, "la la-columns"));
+//        nav.addItem(new AppNavItem("Form", FormView.class, "la la-columns"));
+        nav.addItem(new AppNavItem("ToDo list",ToDoGridView.class,"la la-columns"));
 
         return nav;
     }

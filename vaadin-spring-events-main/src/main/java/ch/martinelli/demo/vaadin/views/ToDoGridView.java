@@ -19,6 +19,7 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.*;
@@ -52,18 +53,35 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
         if (id != null && !id.isEmpty()) {
             operationId = UUID.fromString(id);
         }
-
         ProductInfo productInfo = VaadinService.getCurrent().getContext().getAttribute(ProductInfo.class);
+        if (productInfo == null) {
+            return;
+        }
+
         productId = productInfo.getId();
 
 //        pageTitle= operationService.findById(operationId).get().getOperationName_en();
+
         Notification.show("Loaded: " + productInfo.toString());
-    }
+
+
+}
 
     @Autowired
     public ToDoGridView(ToDoItemsService toDoItemsService, ConfigurableApplicationContext applicationContext, OperationService operationService, ProductInfoService productInfoService) {
+
         this.operationService = operationService;
         setHeightFull();
+
+        ProductInfo loadedInfo = VaadinService.getCurrent().getContext().getAttribute(ProductInfo.class);
+        Operation loadedOperation = VaadinService.getCurrent().getContext().getAttribute(Operation.class);
+        if (loadedInfo == null || loadedOperation == null) {
+            Notification notification = new Notification(loadedInfo == null ? "Select a product first!" : "Select an operation first!");
+            notification.addThemeVariants(NotificationVariant.LUMO_ERROR);
+            notification.setDuration(5000);
+            notification.open();
+            return;
+        }
 
         createOperationInfo(productInfoService);
 
@@ -134,7 +152,7 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
                         spanDateTime.setVisible(true);
                         String actionText = item.getAction() == ActionType.CONFIRM ? "Confirmed at " : "Rejected at ";
                         spanActionStatus.setText(actionText);
-                        if(item.getActionPerformedDT()!=null) {
+                        if (item.getActionPerformedDT() != null) {
                             spanDateTime.setText(item.getActionPerformedDT().format(DateTimeFormatter.ofPattern("dd/MM/yyyy\tE HH:mm:ss")));
                         }
                     }

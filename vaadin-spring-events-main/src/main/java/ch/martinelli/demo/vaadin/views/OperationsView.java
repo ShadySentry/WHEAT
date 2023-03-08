@@ -14,6 +14,7 @@ import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridSortOrder;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.NotificationVariant;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.provider.SortDirection;
@@ -51,7 +52,9 @@ public class OperationsView extends VerticalLayout implements HasUrlParameter<St
         }
 
         productInfo = VaadinService.getCurrent().getContext().getAttribute(ProductInfo.class);
-        Notification.show(String.format("Loaded: {0}", productInfo.toString()));
+        if(productInfo!=null){
+            Notification.show(String.format("Loaded: {0}", productInfo.toString()));
+        }
     }
 
     @Autowired
@@ -60,6 +63,13 @@ public class OperationsView extends VerticalLayout implements HasUrlParameter<St
         this.operationService = operationService;
         this.toDoItemsService = toDoItemsService;
 
+        if (VaadinService.getCurrent().getContext().getAttribute(ProductInfo.class)==null){
+            Notification errorNotification = new Notification("Select a product first!");
+            errorNotification.addThemeVariants(NotificationVariant.LUMO_ERROR);
+            errorNotification.setDuration(5000);
+            errorNotification.open();
+            return;
+        }
 
         setHeightFull();
 

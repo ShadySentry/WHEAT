@@ -33,7 +33,7 @@ import java.util.List;
 @Push // REMARK Enable Push to refresh the View
 @SpringBootApplication
 @Theme(value = "vaadin-spring-events")
-@PWA(name = "vaadin-spring-events", shortName = "vaadin-spring-events", offlineResources = {})
+@PWA(name = "SDO-Wheat-Notepad", shortName = "Notepad", offlineResources = {})
 @NpmPackage(value = "line-awesome", version = "1.3.0")
 @NpmPackage(value = "@vaadin-component-factory/vcf-nav", version = "1.0.6")
 public class Application extends SpringBootServletInitializer implements AppShellConfigurator {
