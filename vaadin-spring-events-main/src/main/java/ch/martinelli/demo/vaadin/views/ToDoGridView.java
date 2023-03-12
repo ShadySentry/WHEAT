@@ -34,6 +34,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.UUID;
 
+import static ch.martinelli.demo.vaadin.views.MainLayout.localeForEn;
+import static ch.martinelli.demo.vaadin.views.MainLayout.selectedLocale;
+
 @PageTitle("Todo list")
 //@Route(value = "todos/:operationId", layout = MainLayout.class)
 @Route(value = "todos", layout = MainLayout.class)
@@ -62,10 +65,11 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
 
 //        pageTitle= operationService.findById(operationId).get().getOperationName_en();
 
-        Notification.show("Loaded: " + productInfo.toString());
+        Notification.show(selectedLocale == localeForEn ? "Loaded: " : "Загружено"
+                + productInfo.getProductIdentityInfo() + "   " + productInfo.getDescription());
 
 
-}
+    }
 
     @Autowired
     public ToDoGridView(ToDoItemsService toDoItemsService, ConfigurableApplicationContext applicationContext, OperationService operationService, ProductInfoService productInfoService) {
@@ -76,7 +80,8 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
         ProductInfo loadedInfo = VaadinService.getCurrent().getContext().getAttribute(ProductInfo.class);
         Operation loadedOperation = VaadinService.getCurrent().getContext().getAttribute(Operation.class);
         if (loadedInfo == null || loadedOperation == null) {
-            Notification notification = new Notification(loadedInfo == null ? "Select a product first!" : "Select an operation first!");
+            Notification notification = new Notification(loadedInfo == null ?
+                    "Select a product first!" : "Сначала необходимо выбрать изделие!");
             notification.addThemeVariants(NotificationVariant.LUMO_ERROR);
             notification.setDuration(5000);
             notification.open();
@@ -101,8 +106,9 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
                 .setWidth("75px")
                 .setFlexGrow(0);
 
-        Grid.Column<OperatorToDoItemDTO> descriptionCol = grid.addColumn(OperatorToDoItemDTO::getActionDescriptionRu)
-                .setHeader("Description")
+        Grid.Column<OperatorToDoItemDTO> descriptionCol = grid.addColumn(selectedLocale == localeForEn ?
+                        (OperatorToDoItemDTO::getActionDescriptionEn):(OperatorToDoItemDTO::getActionDescriptionRu))
+                .setHeader(selectedLocale == localeForEn ?"Description":"Описание")
                 .setFlexGrow(2);
 
 //        descriptionCol.setAutoWidth(true);
@@ -110,12 +116,14 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
 
         Grid.Column<OperatorToDoItemDTO> actionBtCol = grid.addComponentColumn(item -> {
                     Span buttonsWithTimeStamp = new Span();
-                    Button confirmBt = new Button("Confirm");
+                    Button confirmBt = new Button(selectedLocale == localeForEn ?
+                            "Confirm":"Подтвердить");
                     confirmBt.addClassName("accept-button");
                     confirmBt.addThemeVariants(ButtonVariant.LUMO_PRIMARY, ButtonVariant.LUMO_SMALL);
                     confirmBt.getStyle().set("background-color", greenColor);
 
-                    Button rejectBt = new Button("Reject");
+                    Button rejectBt = new Button(selectedLocale == localeForEn ?
+                            "Reject":"Отклонить");
                     rejectBt.addClassName("accept-button");
                     rejectBt.addThemeVariants(ButtonVariant.LUMO_PRIMARY, ButtonVariant.LUMO_SMALL);
                     rejectBt.getStyle().set("background-color", redColor);
@@ -150,7 +158,14 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
                         confirmBt.setVisible(false);
                         rejectBt.setVisible(false);
                         spanDateTime.setVisible(true);
-                        String actionText = item.getAction() == ActionType.CONFIRM ? "Confirmed at " : "Rejected at ";
+
+                        String actionText;
+                        if(selectedLocale == localeForEn){
+                            actionText = item.getAction() == ActionType.CONFIRM ? "Confirmed at " : "Rejected at ";
+                        }else{
+                            actionText = item.getAction() == ActionType.CONFIRM ? "Подтверждено " : "Отклонено ";
+                        }
+
                         spanActionStatus.setText(actionText);
                         if (item.getActionPerformedDT() != null) {
                             spanDateTime.setText(item.getActionPerformedDT().format(DateTimeFormatter.ofPattern("dd/MM/yyyy\tE HH:mm:ss")));

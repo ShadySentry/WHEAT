@@ -4,6 +4,7 @@ import ch.martinelli.demo.vaadin.data.entity.ProductInfo;
 import ch.martinelli.demo.vaadin.data.service.ExcelGeneratorService;
 import ch.martinelli.demo.vaadin.data.service.ProductInfoService;
 import com.flowingcode.vaadin.addons.gridhelpers.GridHelper;
+import com.vaadin.componentfactory.ToggleButton;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
@@ -27,7 +28,9 @@ import com.vaadin.flow.server.VaadinService;
 import com.vaadin.flow.spring.data.VaadinSpringDataHelpers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.data.domain.PageRequest;
 
 import java.io.ByteArrayInputStream;
@@ -37,6 +40,8 @@ import java.io.InputStream;
 import java.util.Locale;
 import java.util.UUID;
 
+import static ch.martinelli.demo.vaadin.views.MainLayout.*;
+
 @PageTitle("product info")
 @Route(value = "", layout = MainLayout.class)
 @RouteAlias(value = "", layout = MainLayout.class)
@@ -45,16 +50,66 @@ import java.util.UUID;
 @Slf4j
 public class ProductSelectionView extends VerticalLayout implements ApplicationListener<ProductInfoAddedEvent> {
     private final ProductInfoService productInfoService;
-    private Grid<ProductInfo> grid = new Grid<>();
-
     private final ExcelGeneratorService excelGeneratorService;
+    private ConfigurableApplicationContext applicationContext;
+    private ApplicationEventPublisher applicationEventPublisher;
+
+
+    private Grid<ProductInfo> grid = new Grid<>();
+    private H2 infoText;
+    private Button btnExportRu;
+    private Button btnAdd;
+    private Button btnSelect;
+    private Button btnExportEn;
+    private Grid.Column<ProductInfo> nameColumn;
+    Grid.Column<ProductInfo> descriptionColumn;
 
     @Autowired
-    public ProductSelectionView(ProductInfoService productInfoService, ExcelGeneratorService excelGeneratorService) {
+    public ProductSelectionView(ProductInfoService productInfoService, ExcelGeneratorService excelGeneratorService,
+                                ConfigurableApplicationContext applicationContext,
+                                ApplicationEventPublisher applicationEventPublisher) {
+        this.applicationEventPublisher = applicationEventPublisher;
         this.productInfoService = productInfoService;
         this.excelGeneratorService = excelGeneratorService;
+        this.applicationContext = applicationContext;
 
-        H2 infoText = new H2("Select product to continue process or create new one to start new production cycle");
+        selectedLocale = VaadinService.getCurrent().getContext().getAttribute(Locale.class);
+
+
+//        H2 selectLanguageText = new H2("Select language");
+//        selectLanguageText.setClassName("lang-text");
+
+        ToggleButton toggleLanguage = new ToggleButton(selectedLocale.getLanguage());
+        toggleLanguage.setValue(selectedLocale != localeForRu);
+
+        toggleLanguage.getStyle().set("padding-left", "16px");
+
+        toggleLanguage.addClickListener(event -> {
+            Locale prevLocale = VaadinService.getCurrent().getContext().getAttribute(Locale.class);
+
+            if (selectedLocale == null) {
+                selectedLocale = localeForEn;
+            } else {
+                if (selectedLocale.getLanguage().equalsIgnoreCase(localeForEn.getLanguage())) {
+                    selectedLocale = localeForRu;
+                } else {
+                    selectedLocale = localeForEn;
+                }
+            }
+            if (prevLocale != selectedLocale) {
+                applicationEventPublisher.publishEvent(new LocalizationChangeEvent(this));
+                updateLocale();
+            }
+            toggleLanguage.setLabel(selectedLocale.getLanguage());
+            VaadinService.getCurrent().getContext().setAttribute(Locale.class, selectedLocale);
+
+        });
+//
+//        add(selectLanguageText, toggleLanguage);
+
+        infoText = new H2(selectedLocale == localeForEn ?
+                "Select product to continue process or create new one to start new production cycle" :
+                "Для продолжения выберите издедлие или создатей новое для начала нового производственного цикла");
         infoText.setClassName("info-text");
         add(infoText);
         setHorizontalComponentAlignment(Alignment.CENTER, infoText);
@@ -64,30 +119,33 @@ public class ProductSelectionView extends VerticalLayout implements ApplicationL
         grid.setItems(query ->
                 productInfoService.list(PageRequest.of(query.getPage(), query.getPageSize(), VaadinSpringDataHelpers.toSpringDataSort(query))).stream());
 
-        grid.addColumn(ProductInfo::getProductIdentityInfo).setHeader("name");
-        grid.addColumn(ProductInfo::getDescription).setHeader("description");
+        nameColumn = grid.addColumn(ProductInfo::getProductIdentityInfo).setHeader(selectedLocale == localeForEn ?
+                "name" : "название");
+
+        descriptionColumn = grid.addColumn(ProductInfo::getDescription).setHeader(selectedLocale == localeForEn ?
+                "description" : "описание");
 
         GridHelper.setSelectOnClick(grid, true);
 
-        Button btnAdd = new Button("Add", new Icon(VaadinIcon.PLUS));
+        btnAdd = new Button(selectedLocale == localeForEn ? "Add" : "Добавить", new Icon(VaadinIcon.PLUS));
         btnAdd.addThemeVariants(ButtonVariant.LUMO_SUCCESS, ButtonVariant.LUMO_SMALL);
         btnAdd.addClickListener(buttonClickEvent -> {
             Dialog dialog = createAddDialogue();
             dialog.open();
         });
 
-        Button btnSelect = new Button("Select", new Icon(VaadinIcon.PLAY));
+        btnSelect = new Button(selectedLocale == localeForEn ? "Select" : "Выбрать", new Icon(VaadinIcon.PLAY));
         btnSelect.addThemeVariants(ButtonVariant.LUMO_PRIMARY, ButtonVariant.LUMO_SMALL);
         btnSelect.addClickListener(buttonClickEvent -> {
             if (grid.getSelectionModel().getFirstSelectedItem().isEmpty()) {
-                Notification.show("Select the product to continue!")
+                Notification.show(selectedLocale == localeForEn ? "Select the product to continue!" :
+                                "Для продолжение выберите изделие!")
                         .addThemeVariants(NotificationVariant.LUMO_ERROR);
                 return;
             }
             Dialog dialog = createSelectDialog();
             dialog.open();
         });
-
 
 
         Anchor downloadExcelRu = new Anchor(new StreamResource("excel_ru.xlsx", () -> {
@@ -107,7 +165,8 @@ public class ProductSelectionView extends VerticalLayout implements ApplicationL
         downloadExcelRu.setEnabled(false);
 
 
-        Button btnExportRu = new Button("Export to Excel RU", new Icon(VaadinIcon.FILE_TEXT));
+        btnExportRu = new Button(selectedLocale == localeForEn ?
+                "Export to Excel RU" : "Экспортировать в Excel RU", new Icon(VaadinIcon.FILE_TEXT));
         btnExportRu.addThemeVariants(ButtonVariant.LUMO_SUCCESS, ButtonVariant.LUMO_SMALL);
 
         downloadExcelRu.add(btnExportRu);
@@ -129,7 +188,8 @@ public class ProductSelectionView extends VerticalLayout implements ApplicationL
         downloadExcelEn.setEnabled(false);
 
 
-        Button btnExportEn = new Button("Export to Excel EN", new Icon(VaadinIcon.FILE_TEXT));
+        btnExportEn = new Button(selectedLocale == localeForEn ?
+                "Export to Excel EN" : "Экспортировать в Excel EN", new Icon(VaadinIcon.FILE_TEXT));
         btnExportEn.addThemeVariants(ButtonVariant.LUMO_SUCCESS, ButtonVariant.LUMO_SMALL);
 
         downloadExcelEn.add(btnExportEn);
@@ -140,7 +200,26 @@ public class ProductSelectionView extends VerticalLayout implements ApplicationL
         });
         add(grid);
 
-        add(new HorizontalLayout(downloadExcelEn,downloadExcelRu, btnAdd, btnSelect));
+        add(new HorizontalLayout(toggleLanguage, downloadExcelEn, downloadExcelRu, btnAdd, btnSelect));
+    }
+
+    private void updateLocale() {
+        UI.getCurrent().access(() -> {
+            infoText.setText(selectedLocale == localeForEn ?
+                    "Select product to continue process or create new one to start new production cycle" :
+                    "Для продолжения выберите издедлие или создатей новое для начала нового производственного цикла");
+            btnExportRu.setText(selectedLocale == localeForEn ?
+                    "Export to Excel RU" : "Экспортировать в Excel RU");
+            btnAdd.setText(selectedLocale == localeForEn ? "Add" : "Добавить");
+            btnSelect.setText(selectedLocale == localeForEn ? "Select" : "Выбрать");
+            btnExportEn.setText(selectedLocale == localeForEn ?
+                    "Export to Excel EN" : "Экспортировать в Excel EN");
+
+            nameColumn.setHeader(selectedLocale == localeForEn ?
+                    "name" : "название");
+            descriptionColumn.setHeader(selectedLocale == localeForEn ?
+                    "description" : "описание");
+        });
     }
 
 
@@ -151,23 +230,27 @@ public class ProductSelectionView extends VerticalLayout implements ApplicationL
         Dialog dialog = new Dialog();
 
         if (grid.getSelectionModel().getFirstSelectedItem().isEmpty()) {
-            Notification.show("Can't proceed without a selected product! Select a product first")
+            Notification.show(selectedLocale == localeForEn ?
+                            "Can't proceed without a selected product! Select a product first" :
+                            "невозможно продолжить без выбранного изделия! Сначала выберите изделие")
                     .addThemeVariants(NotificationVariant.LUMO_ERROR);
             dialog.close();
         }
         ProductInfo info = grid.getSelectionModel().getFirstSelectedItem().get();
 
 
-        dialog.setHeaderTitle("You are going to open the ToDo list with the next product:");
+        dialog.setHeaderTitle(selectedLocale == localeForEn ?
+                "You are going to open the ToDo list with the next product:" :
+                "Вы собираетесь открыть список операций для изделия:");
 
 
         VerticalLayout dialogLayout = new VerticalLayout();
-        TextField productId = new TextField("Name");
+        TextField productId = new TextField(selectedLocale == localeForEn ? "Name" : "Название");
         productId.setEnabled(false);
         productId.setValue(info.getProductIdentityInfo());
         productId.setWidthFull();
 
-        TextField productDescription = new TextField("Description");
+        TextField productDescription = new TextField(selectedLocale == localeForEn ? "Description" : "Описание");
         productDescription.setEnabled(false);
         productDescription.setValue(info.getDescription());
         productDescription.setWidthFull();
@@ -177,7 +260,7 @@ public class ProductSelectionView extends VerticalLayout implements ApplicationL
         uuid.setValue(info.getId().toString());
         uuid.setWidthFull();
 
-        Button btnOk = new Button("Continue");
+        Button btnOk = new Button(selectedLocale == localeForEn ? "Continue" : "Продолжить");
 
 
         dialogLayout.add(productId, productDescription, uuid);
@@ -199,7 +282,7 @@ public class ProductSelectionView extends VerticalLayout implements ApplicationL
 //                            new RouteParameters("operationId",parameterValue)));
         });
 
-        Button btnCancel = new Button("Cancel");
+        Button btnCancel = new Button(selectedLocale == localeForEn ? "Cancel" : "Отменить");
         btnCancel.addClickListener(buttonClickEvent -> {
             dialog.close();
         });
@@ -212,19 +295,23 @@ public class ProductSelectionView extends VerticalLayout implements ApplicationL
 
     private Dialog createAddDialogue() {
         Dialog dialog = new Dialog();
-        dialog.setHeaderTitle("Add new unique name for a product");
+        dialog.setHeaderTitle(selectedLocale == localeForEn ?"Adding a new product":
+                "Добавление нового продукта");
 
         VerticalLayout dialogLayout = new VerticalLayout();
-        TextField productId = new TextField("Enter unique name");
-        TextField productDescription = new TextField("Enter an optional description");
+        TextField productId = new TextField(selectedLocale == localeForEn ?"Enter unique name"
+                :"Введите уникальное имя");
+        TextField productDescription = new TextField(selectedLocale == localeForEn ?"Enter an optional description":
+                "Введите необязательное описание");
 
-        Button btnSave = new Button("save");
+        Button btnSave = new Button(selectedLocale == localeForEn ?"Save":"Сохранить");
 
         productId.setValueChangeMode(ValueChangeMode.ON_CHANGE);
         productId.addValueChangeListener(e -> {
             if (productInfoService.findProductByProductIdentityInfo(e.getValue()) != null) {
                 productId.setInvalid(true);
-                productId.setErrorMessage("name already exists and can't be used");
+                productId.setErrorMessage(selectedLocale == localeForEn ?"Name already exists and can't be used":
+                        "Имя уже сущевутет и неможет быть использовано");
                 btnSave.setEnabled(false);
 
             } else {
@@ -250,7 +337,7 @@ public class ProductSelectionView extends VerticalLayout implements ApplicationL
 //            Broadcaster.broadcast("Item added by " + author);
         });
 
-        Button btnCancel = new Button("Cancel");
+        Button btnCancel = new Button(selectedLocale == localeForEn ?"Cancel":"Отмена");
         btnCancel.addClickListener(buttonClickEvent -> {
             dialog.close();
         });
@@ -333,6 +420,6 @@ public class ProductSelectionView extends VerticalLayout implements ApplicationL
     public void onApplicationEvent(ProductInfoAddedEvent event) {
         UI.getCurrent().access(() ->
                 grid.getDataProvider().refreshAll());
-        Notification.show("added item " + event.toString());
+        Notification.show(selectedLocale == localeForEn ? "added item " : "добавлена запись" + event.toString());
     }
 }

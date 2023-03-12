@@ -3,29 +3,52 @@ package ch.martinelli.demo.vaadin.views;
 
 import ch.martinelli.demo.vaadin.components.appnav.AppNav;
 import ch.martinelli.demo.vaadin.components.appnav.AppNavItem;
-import ch.martinelli.demo.vaadin.data.entity.ProductInfo;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.button.ButtonVariant;
-import com.vaadin.flow.component.html.*;
-import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.data.value.ValueChangeMode;
+import com.vaadin.flow.component.html.Footer;
+import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.html.H2;
+import com.vaadin.flow.component.html.Header;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.server.VaadinService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import java.util.Locale;
 
 /**
  * The main view is a top-level placeholder for other views.
  */
-public class MainLayout extends AppLayout {
-
+public class MainLayout extends AppLayout implements ApplicationListener<LocalizationChangeEvent> {
+    private ConfigurableApplicationContext applicationContext;
     private H1 viewTitle;
 
-    public MainLayout() {
+    public static Locale selectedLocale;
+    public final static Locale localeForRu = new Locale("ru", "RU");
+    public final static Locale localeForEn = Locale.ENGLISH;
+    private H2 descriptionH;
+
+    @Autowired
+    public MainLayout(ConfigurableApplicationContext applicationContext) {
+        this.applicationContext = applicationContext;
+        applicationContext.addApplicationListener(this);
+
+        createLocale();
         setPrimarySection(Section.DRAWER);
         addToNavbar(true, createHeaderContent());
         addToDrawer(createDrawerContent());
+    }
+
+    private void createLocale() {
+        selectedLocale = VaadinService.getCurrent().getContext().getAttribute(Locale.class);
+        if (selectedLocale == null) {
+            selectedLocale = localeForEn;
+            VaadinService.getCurrent().getContext().setAttribute(Locale.class, selectedLocale);
+        }
     }
 
     private Component createHeaderContent() {
@@ -43,14 +66,18 @@ public class MainLayout extends AppLayout {
     }
 
     private Component createDrawerContent() {
-        H2 appName = new H2("vaadin-spring-events");
-        appName.addClassNames("app-name");
+        descriptionH = new H2(selectedLocale == localeForEn ? "Navigation" : "Навигация");
+        descriptionH.addClassNames("app-name");
 
-        com.vaadin.flow.component.html.Section section = new com.vaadin.flow.component.html.Section(appName,
+        com.vaadin.flow.component.html.Section section = new com.vaadin.flow.component.html.Section(descriptionH,
                 createNavigation()/*, createFooter()*/);
         section.addClassNames("drawer-section");
         return section;
     }
+
+    private AppNavItem homeNavItem;
+    private AppNavItem operationNavItem;
+    private AppNavItem todoListItem;
 
     private AppNav createNavigation() {
         // AppNav is not yet an official component.
@@ -58,11 +85,17 @@ public class MainLayout extends AppLayout {
         AppNav nav = new AppNav();
         nav.addClassNames("app-nav");
 
-        nav.addItem(new AppNavItem("Home",ProductSelectionView.class,"la la-columns"));
-        //todo add back and forward links
-        nav.addItem(new AppNavItem("Operations", OperationsView.class, "la la-columns"));
-//        nav.addItem(new AppNavItem("Form", FormView.class, "la la-columns"));
-        nav.addItem(new AppNavItem("ToDo list",ToDoGridView.class,"la la-columns"));
+        homeNavItem = new AppNavItem(selectedLocale == localeForEn ? "Home" : "В начало",
+                ProductSelectionView.class, "la la-columns");
+        nav.addItem(homeNavItem);
+
+        operationNavItem = new AppNavItem(selectedLocale == localeForEn ? "Operations" : "Операции",
+                OperationsView.class, "la la-columns");
+        nav.addItem(operationNavItem);
+
+        todoListItem = new AppNavItem(selectedLocale == localeForEn ? "Todo list" : "Список задач",
+                ToDoGridView.class, "la la-columns");
+        nav.addItem(todoListItem);
 
         return nav;
     }
@@ -82,6 +115,19 @@ public class MainLayout extends AppLayout {
 
     private String getCurrentPageTitle() {
         PageTitle title = getContent().getClass().getAnnotation(PageTitle.class);
+
         return title == null ? "" : title.value();
     }
+
+    @Override
+    public void onApplicationEvent(LocalizationChangeEvent event) {
+//        viewTitle.setText();
+        UI.getCurrent().access(() -> {
+            descriptionH.setText(selectedLocale == localeForEn ? "Navigation" : "Навигация");
+            homeNavItem.setLabel(selectedLocale == localeForEn ? "Home" : "В начало");
+            operationNavItem.setLabel(selectedLocale == localeForEn ? "Operations" : "Операции");
+            todoListItem.setLabel(selectedLocale == localeForEn ? "Todo list" : "Список задач");
+        });
+    }
+
 }

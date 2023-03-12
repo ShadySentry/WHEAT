@@ -113,6 +113,12 @@
             <artifactId>poi-ooxml</artifactId>
             <version>5.2.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.vaadin.componentfactory</groupId>
+            <artifactId>togglebutton</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+
 
 
         <!--        <dependency>-->

@@ -28,6 +28,9 @@ import org.springframework.data.domain.Sort;
 import java.util.List;
 import java.util.UUID;
 
+import static ch.martinelli.demo.vaadin.views.MainLayout.localeForEn;
+import static ch.martinelli.demo.vaadin.views.MainLayout.selectedLocale;
+
 @PageTitle("Available Operations")
 //@Route(value = "todos/:operationId", layout = MainLayout.class)
 @Route(value = "operations", layout = MainLayout.class)
@@ -52,8 +55,9 @@ public class OperationsView extends VerticalLayout implements HasUrlParameter<St
         }
 
         productInfo = VaadinService.getCurrent().getContext().getAttribute(ProductInfo.class);
-        if(productInfo!=null){
-            Notification.show(String.format("Loaded: {0}", productInfo.toString()));
+        if (productInfo != null) {
+            Notification.show(String.format(selectedLocale == localeForEn ? "Loaded: {0}" : "Загружено: {0}",
+                    productInfo.getProductIdentityInfo() + "  " + productInfo.getDescription()));
         }
     }
 
@@ -63,8 +67,9 @@ public class OperationsView extends VerticalLayout implements HasUrlParameter<St
         this.operationService = operationService;
         this.toDoItemsService = toDoItemsService;
 
-        if (VaadinService.getCurrent().getContext().getAttribute(ProductInfo.class)==null){
-            Notification errorNotification = new Notification("Select a product first!");
+        if (VaadinService.getCurrent().getContext().getAttribute(ProductInfo.class) == null) {
+            Notification errorNotification = new Notification(selectedLocale == localeForEn ?
+                    "Select a product first!" : "Сначала выберите изделие");
             errorNotification.addThemeVariants(NotificationVariant.LUMO_ERROR);
             errorNotification.setDuration(5000);
             errorNotification.open();
@@ -78,16 +83,17 @@ public class OperationsView extends VerticalLayout implements HasUrlParameter<St
                 .setWidth("75px")
                 .setFlexGrow(0);
 
-        Grid.Column<Operation> nameCol = grid.addColumn(Operation::getOperationName_ru)
-                .setHeader("Name")
+        Grid.Column<Operation> nameCol = grid.addColumn(selectedLocale == localeForEn ?
+                        (Operation::getOperationName_en) : (Operation::getOperationName_ru))
+                .setHeader(selectedLocale == localeForEn ? "Name" : "Название")
                 .setFlexGrow(1);
 
         Grid.Column<Operation> descriptionCol = grid.addColumn(Operation::getOperationDescription)
-                .setHeader("Description")
+                .setHeader(selectedLocale == localeForEn ? "Description" : "Описание")
                 .setFlexGrow(1);
 
         Grid.Column<Operation> actionBtCol = grid.addComponentColumn(item -> {
-                    Button selectBt = new Button("Select");
+                    Button selectBt = new Button(selectedLocale == localeForEn ? "Select" : "Выбрать");
                     selectBt.addClassName("select-button");
                     selectBt.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
                     selectBt.addClickListener(event -> {
@@ -102,11 +108,11 @@ public class OperationsView extends VerticalLayout implements HasUrlParameter<St
                 .setFlexGrow(0);
 
 
-
         //todo add sorting by number
 //        grid.setItems(operationService.getAll());
         grid.setItems(query ->
-                operationService.list(PageRequest.of(query.getPage(), query.getPageSize(), Sort.by("operationNumber").ascending())).stream());
+                operationService.list(PageRequest.of(query.getPage(), query.getPageSize(),
+                        Sort.by("operationNumber").ascending())).stream());
         grid.sort(List.of(new GridSortOrder<Operation>(operationNumberCol, SortDirection.ASCENDING)));
 
         add(grid);
@@ -115,26 +121,29 @@ public class OperationsView extends VerticalLayout implements HasUrlParameter<St
     private Dialog createSelectDialog(Operation operation) {
         Dialog dialog = new Dialog();
 
-        dialog.setHeaderTitle("You are going to open next operation:");
+        dialog.setHeaderTitle(selectedLocale == localeForEn ?
+                "You are going to open next operation:" : "Вы начинаете операцию:");
 
 
         VerticalLayout dialogLayout = new VerticalLayout();
-        TextField operationNumber = new TextField("Operation #");
+        TextField operationNumber = new TextField(selectedLocale == localeForEn ? "Operation #" : "Операция #");
         operationNumber.setEnabled(false);
         operationNumber.setValue(String.valueOf(operation.getOperationNumber()));
         operationNumber.setWidthFull();
 
-        TextField nameRu = new TextField("Name in russian");
+        TextField nameRu = new TextField(selectedLocale == localeForEn ?
+                "Name in russian" : "Название на русском");
         nameRu.setEnabled(false);
         nameRu.setValue(operation.getOperationName_ru());
         nameRu.setWidthFull();
 
-        TextField nameEn = new TextField("Name in English");
+        TextField nameEn = new TextField(selectedLocale == localeForEn ?
+                "Name in English" : "Название на Английском");
         nameEn.setEnabled(false);
         nameEn.setValue(operation.getOperationName_en());
         nameEn.setWidthFull();
 
-        TextField description = new TextField("Description");
+        TextField description = new TextField(selectedLocale == localeForEn ? "Description" : "Описание");
         description.setEnabled(false);
         description.setValue(operation.getOperationDescription());
         description.setWidthFull();
@@ -145,7 +154,7 @@ public class OperationsView extends VerticalLayout implements HasUrlParameter<St
         uuid.setValue(operation.getId().toString());
         uuid.setWidthFull();
 
-        Button createItemsAndGotoNextPage = new Button("Continue");
+        Button createItemsAndGotoNextPage = new Button(selectedLocale == localeForEn ? "Continue" : "Продолжить");
 
 
         dialogLayout.add(operationNumber, nameRu, nameEn, description, uuid);
@@ -161,14 +170,14 @@ public class OperationsView extends VerticalLayout implements HasUrlParameter<St
 
             VaadinService.getCurrent().getContext().setAttribute(Operation.class, selectedOperation);
 
-            toDoItemsService.build(productInfo.getProductIdentityInfo(),operation.getOperationNumber());
+            toDoItemsService.build(productInfo.getProductIdentityInfo(), operation.getOperationNumber());
 
             String operationIdAsStringParam = selectedOperation.getId().toString();
             createItemsAndGotoNextPage.getUI().ifPresent(ui ->
                     ui.navigate(ToDoGridView.class, operationIdAsStringParam));
         });
 
-        Button btnCancel = new Button("Cancel");
+        Button btnCancel = new Button(selectedLocale == localeForEn ? "Cancel" : "Отменить");
         btnCancel.addClickListener(buttonClickEvent -> {
             dialog.close();
         });
