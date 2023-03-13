@@ -3,11 +3,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <!-- Project from https://start.vaadin.com/project/cbc9f83b-d952-4824-af94-a6a6f7c74c44 -->
-    <groupId>ch.martinelli.demo.vaadin</groupId>
-    <artifactId>vaadin-spring-events</artifactId>
-    <name>vaadin-spring-events</name>
+    <groupId>com.deb.wheat.vaadin</groupId>
+    <artifactId>wheat-notepad</artifactId>
+    <name>wheat-notepad</name>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <properties>
         <java.version>17</java.version>

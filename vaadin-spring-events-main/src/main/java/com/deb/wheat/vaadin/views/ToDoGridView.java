@@ -107,8 +107,8 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
                 .setFlexGrow(0);
 
         Grid.Column<OperatorToDoItemDTO> descriptionCol = grid.addColumn(selectedLocale == localeForEn ?
-                        (OperatorToDoItemDTO::getActionDescriptionEn):(OperatorToDoItemDTO::getActionDescriptionRu))
-                .setHeader(selectedLocale == localeForEn ?"Description":"Описание")
+                        (OperatorToDoItemDTO::getActionDescriptionEn) : (OperatorToDoItemDTO::getActionDescriptionRu))
+                .setHeader(selectedLocale == localeForEn ? "Description" : "Описание")
                 .setFlexGrow(2);
 
 //        descriptionCol.setAutoWidth(true);
@@ -117,13 +117,13 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
         Grid.Column<OperatorToDoItemDTO> actionBtCol = grid.addComponentColumn(item -> {
                     Span buttonsWithTimeStamp = new Span();
                     Button confirmBt = new Button(selectedLocale == localeForEn ?
-                            "Confirm":"Подтвердить");
+                            "Confirm" : "Подтвердить");
                     confirmBt.addClassName("accept-button");
                     confirmBt.addThemeVariants(ButtonVariant.LUMO_PRIMARY, ButtonVariant.LUMO_SMALL);
                     confirmBt.getStyle().set("background-color", greenColor);
 
                     Button rejectBt = new Button(selectedLocale == localeForEn ?
-                            "Reject":"Отклонить");
+                            "Reject" : "Отклонить");
                     rejectBt.addClassName("accept-button");
                     rejectBt.addThemeVariants(ButtonVariant.LUMO_PRIMARY, ButtonVariant.LUMO_SMALL);
                     rejectBt.getStyle().set("background-color", redColor);
@@ -160,9 +160,9 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
                         spanDateTime.setVisible(true);
 
                         String actionText;
-                        if(selectedLocale == localeForEn){
+                        if (selectedLocale == localeForEn) {
                             actionText = item.getAction() == ActionType.CONFIRM ? "Confirmed at " : "Rejected at ";
-                        }else{
+                        } else {
                             actionText = item.getAction() == ActionType.CONFIRM ? "Подтверждено " : "Отклонено ";
                         }
 
@@ -175,7 +175,7 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
                     buttonsWithTimeStamp.add(new VerticalLayout(confirmBt, rejectBt), new VerticalLayout(spanActionStatus, spanDateTime));
                     return buttonsWithTimeStamp;
                 })
-                .setHeader(selectedLocale == localeForEn?"Action":"Действие")
+                .setHeader(selectedLocale == localeForEn ? "Action" : "Действие")
                 .setWidth("170px")
                 .setFlexGrow(0);
 
@@ -212,13 +212,15 @@ public class ToDoGridView extends VerticalLayout implements ApplicationListener<
         Operation operation = operationService.findById(loadedOperation.getId()).get();
 
         String operationNameText = "";
-        if (operation.getOperationName_en().isEmpty()) {
-            operationNameText = String.format("Операция # %s: %s",
-                    operation.getOperationNumber(), operation.getOperationName_ru());
+
+        if (selectedLocale == localeForEn) {
+            operationNameText = String.format("Operation # %s: %s",
+                    operation.getOperationNumber(), operation.getOperationName_en());
         } else {
             operationNameText = String.format("Операция # %s: %s",
-                    operation.getOperationNumber(), operation.getOperationName_en());
+                    operation.getOperationNumber(), operation.getOperationName_ru());
         }
+
 
         Label operationNameLb = new Label(operationNameText);
         Label operDescriptionLb = new Label(operation.getOperationDescription());

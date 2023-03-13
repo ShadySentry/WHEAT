@@ -38,7 +38,7 @@ public class ProductInfoService {
         applicationEventPublisher.publishEvent(new ProductInfoAddedEvent(this));
     }
 
-    public ProductInfo findProductByProductIdentityInfo(@NotBlank String productIdentityInfo){
+    public ProductInfo findProductByProductIdentityInfo(String productIdentityInfo){
         return productInfoRepository.findByProductIdentityInfo(productIdentityInfo);
     }
 
@@ -53,4 +53,12 @@ public class ProductInfoService {
     public Page<ProductInfo> list(Pageable pageable) {
         return productInfoRepository.findAll(pageable);
     }
+
+//    public List<ProductInfo> findAllByProductIdentityInfo(String value) {
+//        if(value==null){
+//            return productInfoRepository.
+//        }else {
+//            return productInfoRepository.findAll();
+//        }
+//    }
 }

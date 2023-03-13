@@ -12,6 +12,7 @@ import com.vaadin.flow.component.dependency.Uses;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridSortOrder;
+import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.notification.NotificationVariant;
@@ -111,6 +112,7 @@ public class OperationsView extends VerticalLayout implements HasUrlParameter<St
                 operationService.list(PageRequest.of(query.getPage(), query.getPageSize(),
                         Sort.by("operationNumber").ascending())).stream());
         grid.sort(List.of(new GridSortOrder<Operation>(operationNumberCol, SortDirection.ASCENDING)));
+        grid.addThemeVariants(GridVariant.LUMO_WRAP_CELL_CONTENT);
 
         add(grid);
     }
@@ -118,6 +120,8 @@ public class OperationsView extends VerticalLayout implements HasUrlParameter<St
     private Dialog createSelectDialog(Operation operation) {
         Dialog dialog = new Dialog();
 
+
+        dialog.setWidth("500px");
         dialog.setHeaderTitle(MainLayout.selectedLocale == MainLayout.localeForEn ?
                 "You are going to open next operation:" : "Вы начинаете операцию:");
 
