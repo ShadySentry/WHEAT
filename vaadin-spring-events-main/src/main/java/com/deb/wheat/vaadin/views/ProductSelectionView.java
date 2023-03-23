@@ -180,7 +180,7 @@ public class ProductSelectionView extends VerticalLayout implements ApplicationL
 
 
         btnExportRu = new Button(MainLayout.selectedLocale == MainLayout.localeForEn ?
-                "Export to Excel RU" : "Экспорт в Excel RU", new Icon(VaadinIcon.FILE_TEXT));
+                "Export to Excel RU" : "Экспорт RU", new Icon(VaadinIcon.FILE_TEXT));
         btnExportRu.addThemeVariants(ButtonVariant.LUMO_SUCCESS, ButtonVariant.LUMO_SMALL);
 
         downloadExcelRu.add(btnExportRu);
@@ -203,7 +203,7 @@ public class ProductSelectionView extends VerticalLayout implements ApplicationL
 
 
         btnExportEn = new Button(MainLayout.selectedLocale == MainLayout.localeForEn ?
-                "Export to Excel EN" : "Экспорт в Excel EN", new Icon(VaadinIcon.FILE_TEXT));
+                "Export to Excel EN" : "Экспорт EN", new Icon(VaadinIcon.FILE_TEXT));
         btnExportEn.addThemeVariants(ButtonVariant.LUMO_SUCCESS, ButtonVariant.LUMO_SMALL);
 
         downloadExcelEn.add(btnExportEn);
@@ -226,11 +226,11 @@ public class ProductSelectionView extends VerticalLayout implements ApplicationL
                     "Select product to continue process or create new one to start new production cycle" :
                     "Для продолжения выберите издедлие или создатей новое для начала нового производственного цикла");
             btnExportRu.setText(MainLayout.selectedLocale == MainLayout.localeForEn ?
-                    "Export to Excel RU" : "Экспор в Excel RU");
+                    "Export to Excel RU" : "Экспор RU");
             btnAdd.setText(MainLayout.selectedLocale == MainLayout.localeForEn ? "Add" : "Добавить");
             btnSelect.setText(MainLayout.selectedLocale == MainLayout.localeForEn ? "Select" : "Выбрать");
             btnExportEn.setText(MainLayout.selectedLocale == MainLayout.localeForEn ?
-                    "Export to Excel EN" : "Экспорт в Excel EN");
+                    "Export to Excel EN" : "Экспорт EN");
 
             nameColumn.setHeader(MainLayout.selectedLocale == MainLayout.localeForEn ?
                     "name" : "название");
