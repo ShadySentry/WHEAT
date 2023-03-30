@@ -10,6 +10,7 @@ import com.deb.wheat.vaadin.repository.ActionDescriptionRepository;
 import com.deb.wheat.vaadin.repository.OperationRepository;
 import com.deb.wheat.vaadin.repository.ProductInfoRepository;
 import com.deb.wheat.vaadin.views.CsvImporter;
+import com.ulisesbocchio.jasyptspringboot.annotation.EnableEncryptableProperties;
 import com.vaadin.flow.component.dependency.NpmPackage;
 import com.vaadin.flow.component.page.AppShellConfigurator;
 import com.vaadin.flow.component.page.Push;
@@ -20,6 +21,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.event.EventListener;
 
 import java.util.List;
@@ -32,6 +34,7 @@ import java.util.List;
  */
 @Push // REMARK Enable Push to refresh the View
 @SpringBootApplication
+//@PropertySource(name="EncryptedProperties", value = "classpath:encrypted.properties")
 @Theme(value = "vaadin-spring-events")
 @PWA(name = "SDO-Wheat-Notepad", shortName = "Notepad", offlineResources = {})
 @NpmPackage(value = "line-awesome", version = "1.3.0")

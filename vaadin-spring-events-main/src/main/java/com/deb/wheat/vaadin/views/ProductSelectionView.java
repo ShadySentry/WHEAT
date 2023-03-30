@@ -105,7 +105,7 @@ public class ProductSelectionView extends VerticalLayout implements ApplicationL
 
         infoText = new H2(MainLayout.selectedLocale == MainLayout.localeForEn ?
                 "Select product to continue process or create new one to start new production cycle" :
-                "Для продолжения выберите издедлие или создатей новое для начала нового производственного цикла");
+                "Для продолжения выберите изделие или создайте новое");
         infoText.setClassName("info-text");
         add(infoText);
         setHorizontalComponentAlignment(Alignment.CENTER, infoText);
